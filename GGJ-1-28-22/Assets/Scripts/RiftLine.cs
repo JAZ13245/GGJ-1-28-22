@@ -61,10 +61,10 @@ public class RiftLine : MonoBehaviour
         CompareValues(playerOnePos.x,playerTwoPos.x);
         CompareValues(playerOnePos.y,playerTwoPos.y);
 
-        Debug.Log("1:"+Vector2.Angle(playerOnePos, playerTwoPos));
-        Debug.Log("p1:"+Vector2.Angle(playerOnePos, pivot));
-        Debug.Log("p2:"+Vector2.Angle(playerTwoPos, pivot));
-        Debug.Log("3:" + Mathf.Abs(Vector2.Angle(pivot, playerOnePos) - Vector2.Angle(pivot, playerTwoPos)));
+        //Debug.Log("1:"+Vector2.Angle(playerOnePos, playerTwoPos));
+        //Debug.Log("p1:"+Vector2.Angle(playerOnePos, pivot));
+        //Debug.Log("p2:"+Vector2.Angle(playerTwoPos, pivot));
+        //Debug.Log("3:" + Mathf.Abs(Vector2.Angle(pivot, playerOnePos) - Vector2.Angle(pivot, playerTwoPos)));
         /*
         Debug.Log("4:" +  Vector2.Angle(Vector2.Angle(playerOnePos, playerTwoPos),pivot));
         Vector3.Cross()
