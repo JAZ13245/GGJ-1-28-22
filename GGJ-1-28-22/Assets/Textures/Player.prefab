@@ -158,7 +158,7 @@ MonoBehaviour:
     m_ActionId: 859c5884-8b95-41df-9572-62f0a5889abf
     m_ActionName: Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: PlayerTwo
+  m_DefaultControlScheme: PlayerOne
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

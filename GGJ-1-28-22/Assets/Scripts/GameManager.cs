@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         var player1 = PlayerInput.Instantiate(playerPrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
         var player2 = PlayerInput.Instantiate(playerPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
+
     }
 
     // Update is called once per frame
