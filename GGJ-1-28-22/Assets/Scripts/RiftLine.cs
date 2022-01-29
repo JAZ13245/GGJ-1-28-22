@@ -13,6 +13,7 @@ public class RiftLine : MonoBehaviour
     private bool leftHeld;
     private bool rightHeld;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,29 +49,22 @@ public class RiftLine : MonoBehaviour
         if (context.canceled) { rightHeld = false; }
     }
 
-    private void Rotate()
+    private void Move()
     {
+        if (rightHeld) {angle--;}
+        if (leftHeld) {angle++;}
+    }
+
+    private void SetAngle()
+    {
+        RiftMask.transform.rotation = Quaternion.identity;
+        RiftMask.transform.Rotate(new Vector3(0, 0, angle));
+
         float newAngle = angle;
         angle *= Mathf.Deg2Rad;
         theLine.SetPosition(0, new Vector3(Mathf.Cos(angle) * 6, Mathf.Sin(angle) * 6, -9));
         theLine.SetPosition(2, new Vector3(Mathf.Cos(angle + Mathf.PI) * 6, Mathf.Sin(angle + Mathf.PI) * 6, -9));
         angle = newAngle;
-    }
-    private void Move()
-    {
-        if (rightHeld)
-        {
-            angle--;
-            RiftMask.transform.Rotate(new Vector3(0, 0, -1));
-            Rotate();
-        }
-        if (leftHeld)
-        {
-            angle++;
-            RiftMask.transform.Rotate(new Vector3(0, 0, 1));
-            Rotate();
-        }
-        
     }
 }
 
