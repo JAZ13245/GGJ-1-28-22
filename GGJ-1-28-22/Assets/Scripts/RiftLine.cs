@@ -34,6 +34,7 @@ public class RiftLine : MonoBehaviour
         Vector3 endPoint= theLine.GetPosition(1);
 
         Move();
+        SetAngle();
 
         if (angle >= 360 || angle <= -360) { angle = 0; }
     }
