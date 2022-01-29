@@ -22,6 +22,7 @@ public class RiftLine : MonoBehaviour
     {
         Vector3 startPoint = theLine.GetPosition(0);
         Vector3 endPoint= theLine.GetPosition(1);
+        /**
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             angle++;
@@ -30,6 +31,7 @@ public class RiftLine : MonoBehaviour
         {
             angle--;
         }
+        **/
         angle *= Mathf.Deg2Rad;
         theLine.SetPosition(0, new Vector3(Mathf.Cos(angle), Mathf.Sin(angle),0) * 6);
         theLine.SetPosition(2, new Vector3(Mathf.Cos(angle+ Mathf.PI), Mathf.Sin(angle+ Mathf.PI),0)*6);
