@@ -7,13 +7,15 @@ public class GameManager : MonoBehaviour
 {
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
+
+    public PlayerInput playerOne;
+    public PlayerInput playerTwo;
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
-        var player1 = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
-        var player2 = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
-        player2.gameObject.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
+        playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
     }
 
     // Update is called once per frame

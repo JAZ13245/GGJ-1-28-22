@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5564441322059714144}
   - component: {fileID: 5564441322059714172}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: PlayerTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &2023735606023145026
 MonoBehaviour:

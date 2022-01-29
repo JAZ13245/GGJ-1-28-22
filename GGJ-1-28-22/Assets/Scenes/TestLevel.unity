@@ -532,7 +532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RiftMask: {fileID: 1070642820}
+  gm: {fileID: 1864266969}
   angle: 0
+  playerOnePos: 0
 --- !u!120 &922394447
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1022,6 +1024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOnePrefab: {fileID: 1512945899585952721, guid: 87c247d48e7300d45a68053e28cb14fe, type: 3}
   playerTwoPrefab: {fileID: 1512945899585952721, guid: e06dabfed3d473e47b392c1d527c1636, type: 3}
+  playerOne: {fileID: 0}
+  playerTwo: {fileID: 0}
 --- !u!4 &1864266970
 Transform:
   m_ObjectHideFlags: 0

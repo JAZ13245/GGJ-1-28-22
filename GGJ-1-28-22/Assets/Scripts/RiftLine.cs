@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class RiftLine : MonoBehaviour
 {
     public GameObject RiftMask;
+    public GameManager gm;
     public float angle;
 
     LineRenderer theLine;
@@ -33,27 +34,10 @@ public class RiftLine : MonoBehaviour
         Vector3 startPoint = theLine.GetPosition(0);
         Vector3 endPoint= theLine.GetPosition(1);
 
-        Move();
         SetAngle();
+        GetDistanceApart();
 
         if (angle >= 360 || angle <= -360) { angle = 0; }
-    }
-    public void LeftHeld(InputAction.CallbackContext context)
-    {
-        if (context.started) { leftHeld = true; }
-        if (context.canceled) { leftHeld = false; }
-    }
-
-    public void RightHeld(InputAction.CallbackContext context)
-    {
-        if (context.started) { rightHeld = true; }
-        if (context.canceled) { rightHeld = false; }
-    }
-
-    private void Move()
-    {
-        if (rightHeld) {angle--;}
-        if (leftHeld) {angle++;}
     }
 
     private void SetAngle()
@@ -66,6 +50,29 @@ public class RiftLine : MonoBehaviour
         theLine.SetPosition(0, new Vector3(Mathf.Cos(angle) * 6, Mathf.Sin(angle) * 6, -9));
         theLine.SetPosition(2, new Vector3(Mathf.Cos(angle + Mathf.PI) * 6, Mathf.Sin(angle + Mathf.PI) * 6, -9));
         angle = newAngle;
+    }
+
+    private void GetDistanceApart()
+    {
+        Vector3 playerOnePos = gm.playerOne.transform.position;
+        Vector3 playerTwoPos = gm.playerTwo.transform.position;
+        Vector3 pivot = new Vector3(0, 0, -9);
+     
+        CompareValues(playerOnePos.x,playerTwoPos.x);
+        CompareValues(playerOnePos.y,playerTwoPos.y);
+
+        Debug.Log("1:"+Vector2.Angle(playerOnePos, playerTwoPos));
+        Debug.Log("p1:"+Vector2.Angle(playerOnePos, pivot));
+        Debug.Log("p2:"+Vector2.Angle(playerTwoPos, pivot));
+        Debug.Log("3:" + Mathf.Abs(Vector2.Angle(pivot, playerOnePos) - Vector2.Angle(pivot, playerTwoPos)));
+        /*
+        Debug.Log("4:" +  Vector2.Angle(Vector2.Angle(playerOnePos, playerTwoPos),pivot));
+        Vector3.Cross()
+        */
+        float CompareValues(float first,float second)
+        {
+            return Mathf.Abs(first - second);
+        }
     }
 }
 
