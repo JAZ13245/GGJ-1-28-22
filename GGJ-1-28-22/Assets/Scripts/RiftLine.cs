@@ -7,14 +7,14 @@ public class RiftLine : MonoBehaviour
     public GameObject RiftMask;
 
     LineRenderer theLine;
-    float angle;
+    public float angle;
 
     // Start is called before the first frame update
     void Start()
     {
         angle = 0;
         theLine = this.GetComponent<LineRenderer>();
-        theLine.material = new Material(Shader.Find("Sprites/Default"));
+        //theLine.material = new Material(Shader.Find("Sprites/Default"));
         theLine.SetColors(Color.cyan, Color.cyan);
         theLine.SetPosition(1, new Vector3(0,0,-9));
     }
