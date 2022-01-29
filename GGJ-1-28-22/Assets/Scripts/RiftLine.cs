@@ -41,7 +41,7 @@ public class RiftLine : MonoBehaviour
         angle *= Mathf.Deg2Rad;
         theLine.SetPosition(0, new Vector3(Mathf.Cos(angle)*6, Mathf.Sin(angle)*6,-9));
         theLine.SetPosition(2, new Vector3(Mathf.Cos(angle+ Mathf.PI)*6, Mathf.Sin(angle+ Mathf.PI)*6,-9));
-        angle = newAngle;
+        //angle = newAngle;
 
         if (angle >= 360 || angle <= -360) { angle = 0; }
     }
