@@ -11,6 +11,7 @@ public class RiftLine : MonoBehaviour
     //public int quadrant;
 
     public BoxCollider2D lineCollision;
+    public GameObject lineParticles;
     Rigidbody2D lineRigidBody;
     LineRenderer theLine;
     
@@ -152,6 +153,9 @@ public class RiftLine : MonoBehaviour
 
         lineCollision.transform.rotation = Quaternion.identity;
         lineCollision.transform.Rotate(new Vector3(0, 0, angle));
+
+        lineParticles.transform.rotation = Quaternion.identity;
+        lineParticles.transform.Rotate(new Vector3(0, 0, angle));
 
         float newAngle = angle;
         angle *= Mathf.Deg2Rad;

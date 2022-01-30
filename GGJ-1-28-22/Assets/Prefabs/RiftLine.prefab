@@ -184,6 +184,7 @@ MonoBehaviour:
   lg: {fileID: 0}
   angle: 0
   lineCollision: {fileID: 5734609044647149425}
+  lineParticles: {fileID: 0}
   playerOneQuadrant: 0
   playerTwoQuadrant: 0
 --- !u!120 &5734609042830255498
@@ -205,7 +206,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ad804d41f13d5284cb69bc834a194451, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
