@@ -13,6 +13,8 @@ public class LevelGenerator : MonoBehaviour
     public PlayerInput playerOne;
     public PlayerInput playerTwo;
 
+    public GameObject[] spawnOut = new GameObject[5];
+
 
     void Start()
     {
@@ -54,6 +56,18 @@ public class LevelGenerator : MonoBehaviour
                 if (colorMapping.color.Equals(pixelColor))
                 {
                     Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
+                }
+
+                if (colorMapping.color.Equals(Color.yellow))
+                {
+                    for (int i = 0; i < spawnOut.Length; i++)
+                    {
+                        if (spawnOut[i] == null)
+                        {
+                            spawnOut[i] = colorMapping.prefab;
+                            break;
+                        }
+                    }
                 }
             }
             else
