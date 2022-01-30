@@ -30,7 +30,7 @@ public class RiftLine : MonoBehaviour
     void Start()
     {
         //quadrant = 0;
-        angle = 0;
+        angle = 270;
         leftHeld = false;
         rightHeld = false;
 
@@ -134,11 +134,11 @@ public class RiftLine : MonoBehaviour
         {
             if (desiredAngle > angle)
             {
-                angle += 1;
+                angle += 5;
             }
             else if (desiredAngle < angle)
             {
-                angle -= 1;
+                angle -= 5;
             }
         }
     }

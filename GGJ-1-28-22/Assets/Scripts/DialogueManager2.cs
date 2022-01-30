@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager2 : MonoBehaviour
 {
     private Queue<string> sentences;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class DialogueManager2 : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("End of conversation");
+        SceneManager.LoadScene("level01");
+
     }
 }
