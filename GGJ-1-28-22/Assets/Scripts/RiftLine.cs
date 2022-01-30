@@ -8,20 +8,27 @@ public class RiftLine : MonoBehaviour
     public GameObject RiftMask;
     public GameManager gm;
     public float angle;
-    public int quadrant;
+    //public int quadrant;
 
+    public BoxCollider2D lineCollision;
+    Rigidbody2D lineRigidBody;
     LineRenderer theLine;
-
+    
     private bool leftHeld;
     private bool rightHeld;
 
     Vector3 playerOnePos;
     Vector3 playerTwoPos;
 
+    public int playerOneQuadrant;
+    public int playerTwoQuadrant;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        quadrant = 0;
+        //quadrant = 0;
         angle = 0;
         leftHeld = false;
         rightHeld = false;
@@ -29,8 +36,11 @@ public class RiftLine : MonoBehaviour
         theLine = this.GetComponent<LineRenderer>();
 
         theLine.SetColors(Color.red, Color.cyan);
-        //theLine.colorGradient = Gradient.
+        theLine.SetPosition(0, new Vector3(-6, 0, -9));
+
         theLine.SetPosition(1, new Vector3(0,0,-9));
+        theLine.SetPosition(2, new Vector3(6, 0, -9));
+
     }
 
     // Update is called once per frame
@@ -42,34 +52,91 @@ public class RiftLine : MonoBehaviour
         playerOnePos = gm.playerOne.transform.position;
         playerTwoPos = gm.playerTwo.transform.position;
 
-        Move();
+        playerOneQuadrant = GetQuadrant(playerOnePos);
+        playerTwoQuadrant = GetQuadrant(playerTwoPos);
+
+        angle = GetLineQuad();
+
         SetAngle();
 
         if (angle >= 360 || angle <= -360) { angle = 0; }
     }
 
-    public void LeftHeld(InputAction.CallbackContext context)
+    private int GetLineQuad()
     {
-        if (context.started) { leftHeld = true; }
-        if (context.canceled) { leftHeld = false; }
+        if (playerOneQuadrant == 1)
+        {
+            if (playerTwoQuadrant == 2)
+            {
+                return 270;
+            }
+            if (playerTwoQuadrant == 3)
+            {
+                return 315;
+            }
+            if (playerTwoQuadrant == 4)
+            {
+                return 360;
+            }
+        }
+        else if (playerOneQuadrant == 2)
+        {
+            if (playerTwoQuadrant == 1)
+            {
+                return 270;
+            }
+            if (playerTwoQuadrant == 3)
+            {
+                return 180;
+            }
+            if (playerTwoQuadrant == 4)
+            {
+                return 180;
+            }
+        }
+        else if (playerOneQuadrant == 3)
+        {
+            if (playerTwoQuadrant == 1)
+            {
+                return 315;
+            }
+            if (playerTwoQuadrant == 2)
+            {
+                return 360;
+            }
+            if (playerTwoQuadrant == 4)
+            {
+                return 90;
+            }
+        }
+        else if (playerOneQuadrant == 4)
+        {
+            if (playerTwoQuadrant == 1)
+            {
+                return 0;
+            }
+            if (playerTwoQuadrant == 2)
+            {
+                return 225;
+            }
+            if (playerTwoQuadrant == 3)
+            {
+                return 90;
+            }
+        }
+        return -1;
     }
 
-    public void RightHeld(InputAction.CallbackContext context)
-    {
-        if (context.started) { rightHeld = true; }
-        if (context.canceled) { rightHeld = false; }
-    }
 
-    private void Move()
-    {
-        if (rightHeld) { angle--; }
-        if (leftHeld) { angle++; }
-    }
+
 
     private void SetAngle()
     {
         RiftMask.transform.rotation = Quaternion.identity;
         RiftMask.transform.Rotate(new Vector3(0, 0, angle));
+
+        lineCollision.transform.rotation = Quaternion.identity;
+        lineCollision.transform.Rotate(new Vector3(0, 0, angle));
 
         float newAngle = angle;
         angle *= Mathf.Deg2Rad;
@@ -77,7 +144,18 @@ public class RiftLine : MonoBehaviour
         theLine.SetPosition(2, new Vector3(Mathf.Cos(angle + Mathf.PI) * 6, Mathf.Sin(angle + Mathf.PI) * 6, -9));
         angle = newAngle;
     }
+
+    private int GetQuadrant(Vector3 obj)
+    {
+        if (obj.x > 0 && obj.y > 0) { return 1; }
+        else if (obj.x < 0 && obj.y > 0) { return 2; }
+        else if (obj.x < 0 && obj.y < 0) { return 3; }
+        else if (obj.x > 0 && obj.y < 0) { return 4; }
+        else return 0;
+    }
 }
+
+
 
 
 /*
