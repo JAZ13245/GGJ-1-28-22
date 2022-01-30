@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public LevelLoader level;
 
     // Start is called before the first frame update
+    */
     void Start()
     {
         Time.timeScale = 1;
