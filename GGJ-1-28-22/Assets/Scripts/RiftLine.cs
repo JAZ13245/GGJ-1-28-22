@@ -129,13 +129,18 @@ public class RiftLine : MonoBehaviour
 
     private void ShiftAngle(int desiredAngle)
     {
-        if(desiredAngle == 360 || desiredAngle == 0)
+        if((desiredAngle == 360 || desiredAngle == 0)&&angle!=0 && angle != 360)
         {
-            //
+            if(360-angle >= 180)
+            {
+                angle -= 1;
+            }
+            else
+            {
+                angle += 1;
+            }
         }
-
-
-        if (desiredAngle != angle)
+        else if (desiredAngle != angle)
         {
             if (desiredAngle > angle)
             {
