@@ -15,7 +15,6 @@
                 },
                 {
                     "name": "MoveRiftLeft",
-                    "name": "Interact",
                     "type": "Button",
                     "id": "9dc732c5-94dc-4039-9e23-371cf9a04efd",
                     "expectedControlType": "Button",
@@ -27,6 +26,14 @@
                     "type": "Button",
                     "id": "01e766c6-6eab-4986-849a-350eab321d5e",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Carry",
+                    "type": "Value",
+                    "id": "0fb58686-e9c3-44b5-9dea-37b80d05a344",
+                    "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": ""
                 }
@@ -168,8 +175,6 @@
                     "name": "",
                     "id": "71db11be-2a28-4404-ad3d-cfaef3beda3b",
                     "path": "<Keyboard>/e",
-                    "id": "2b3bfd02-0cae-4190-939e-89f60595dfee",
-                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayerOne",
@@ -185,8 +190,28 @@
                     "processors": "",
                     "groups": "PlayerTwo;PlayerOne",
                     "action": "MoveRiftRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03fd121b-12f7-40bd-8e3f-e55dbc574427",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerOne",
+                    "action": "Carry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "728d5382-9085-4fe4-8da2-9cbdfad97622",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
                     "groups": "PlayerTwo",
-                    "action": "Interact",
+                    "action": "Carry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

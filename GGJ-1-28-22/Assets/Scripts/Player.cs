@@ -9,10 +9,11 @@ public class Player : MonoBehaviour
     private Vector2 movementInput;
     public GameObject playerPrefab;
     public Animator animator;
-
+    private bool nearBox = false;
+    private bool isCarrying = false;
+    
     void Update()
     {
-
         transform.Translate(new Vector3(movementInput.x, movementInput.y, 0) * speed * Time.deltaTime);
 
         // Sets the amounts needed for the animation
@@ -33,11 +34,6 @@ public class Player : MonoBehaviour
 
     }
 
-    public void OnInteract(InputAction.CallbackContext ctx)
-    {
-        Debug.Log("Interact");
-    }
-
     public void OnMove(InputAction.CallbackContext ctx) 
     {
 
@@ -46,8 +42,21 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnCarry(InputAction.CallbackContext ctx)
     {
-        
+        if (nearBox)
+        {
+            Debug.Log("Carrying");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        nearBox = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        nearBox = false;
     }
 }
