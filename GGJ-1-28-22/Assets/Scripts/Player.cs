@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     private bool nearBox = false;
     private bool isCarrying = false;
-
+    
     void Update()
     {
         transform.Translate(new Vector3(movementInput.x, movementInput.y, 0) * speed * Time.deltaTime);
