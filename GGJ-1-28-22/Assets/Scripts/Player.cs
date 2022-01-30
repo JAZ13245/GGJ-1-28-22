@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
         transform.Translate(new Vector3(movementInput.x, movementInput.y, 0) * speed * Time.deltaTime);
 
         // Sets the amounts needed for the animation
