@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - New tag
+  - SpawnOut
+  - PlayerOne
+  - PlayerTwo
   layers:
   - Default
   - TransparentFX

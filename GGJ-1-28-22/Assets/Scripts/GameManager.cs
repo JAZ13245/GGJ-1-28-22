@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour
     
     public PlayerInput playerOne;
     public PlayerInput playerTwo;
-    */
+
+    public SpawnBlock spawnBlock;
+    public LevelLoader level;
+
     // Start is called before the first frame update
     void Start()
     {

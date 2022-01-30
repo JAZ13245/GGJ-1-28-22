@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     private bool nearBox = false;
     private bool isCarrying = false;
+    private Vector2 pos;
     
     void Update()
     {
@@ -31,6 +32,9 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector3(2, 2, 2);
         }
+
+        pos = transform.position;
+        //Debug.Log(pos);
 
     }
 
