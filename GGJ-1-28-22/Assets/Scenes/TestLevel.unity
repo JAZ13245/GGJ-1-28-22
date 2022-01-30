@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 74a9cd5ae25e48a4cb6873fab926d668, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 6e7dc99b0f3abc5408781e509df019bf, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -722,6 +722,10 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 859c5884-8b95-41df-9572-62f0a5889abf
+    m_ActionName: Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 922394446}
         m_TargetAssemblyTypeName: RiftLine, Assembly-CSharp
@@ -730,13 +734,13 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 9374bf01-2525-44a8-ab6c-a1a3cb1aef5d
-    m_ActionName: Player/RotateRift[/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionId: 9dc732c5-94dc-4039-9e23-371cf9a04efd
+    m_ActionName: Gameplay/MoveRift[/Keyboard/q,/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 922394446}
@@ -746,16 +750,16 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 415e0ff8-a15c-4ad3-8aea-82b1ecdd371f
-    m_ActionName: Player/RotateRight[/Keyboard/rightArrow]
-  m_NeverAutoSwitchControlSchemes: 0
+    m_ActionId: 01e766c6-6eab-4986-849a-350eab321d5e
+    m_ActionName: Gameplay/MoveRiftRight[/Keyboard/e]
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1070642820
