@@ -46,7 +46,7 @@ public class LevelGenerator : MonoBehaviour
         {
             float newX = (float)(.4 * x + .2);
             float newY = (float)(.4 * y + .2);
-            Vector3 position = new Vector3(newX - 4, newY - 3, 0);
+            Vector3 position = new Vector3(newX - 4, newY - 3, -9);
             
             //Debug.Log(colorMapping.color);
             if (!(colorMapping.prefab.name == "PlayerOne" || colorMapping.prefab.name == "PlayerTwo"))
