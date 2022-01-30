@@ -187,7 +187,7 @@ MonoBehaviour:
     m_ActionId: 0fb58686-e9c3-44b5-9dea-37b80d05a344
     m_ActionName: Gameplay/Carry[/Keyboard/space,/Keyboard/rightCtrl]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: PlayerTwo
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class LevelGenerator : MonoBehaviour
 {
     public Texture2D map;
     public ColorToPrefab[] colorMappings;
+    public PlayerInput playerOne;
+    public PlayerInput playerTwo;
 
 
     void Start()
@@ -22,7 +26,8 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
-
+    //playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
+        //playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
     void GenerateTile(int x, int y)
     {
         Color pixelColor = map.GetPixel(x, y);
@@ -36,7 +41,8 @@ public class LevelGenerator : MonoBehaviour
         //Debug.Log(pixelColor);
         foreach (ColorToPrefab colorMapping in colorMappings)
         {
-            Debug.Log(colorMapping.color);
+            Debug.Log(colorMapping.prefab.name);
+            //Debug.Log(colorMapping.color);
             if (colorMapping.color.Equals(pixelColor))
             {
                 Debug.Log("Equals");
