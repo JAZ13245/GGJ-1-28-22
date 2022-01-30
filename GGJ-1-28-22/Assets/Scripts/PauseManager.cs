@@ -8,6 +8,8 @@ public class PauseManager : MonoBehaviour
     
     public static bool paused = false;
     public GameObject menu;
+    public GameObject chat1;
+    public GameObject chat2;
 
     PauseAction action;
 
@@ -47,6 +49,8 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0;
         paused = true;
         menu.SetActive(true);
+        chat1.SetActive(false);
+        chat2.SetActive(false);
     }
 
     //resume game function
@@ -55,5 +59,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         paused = false;
         menu.SetActive(false);
+        chat1.SetActive(true);
+        chat2.SetActive(true);
     }
 }
