@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public SpawnBlock spawnBlock;
     public LevelLoader level;
+    
 
     // Start is called before the first frame update
     */

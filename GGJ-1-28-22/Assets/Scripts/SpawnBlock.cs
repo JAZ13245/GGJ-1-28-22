@@ -27,7 +27,7 @@ public class SpawnBlock : MonoBehaviour
             playerOneOnPoint = true;
         }
 
-        else if (collision.gameObject.CompareTag("PlayerTwo"))
+        if (collision.gameObject.CompareTag("PlayerTwo"))
         {
             //Debug.Log("Player two on point");
             playerTwoOnPoint = true;
@@ -42,7 +42,7 @@ public class SpawnBlock : MonoBehaviour
             playerOneOnPoint = false;
         }
 
-        else if (collision.gameObject.CompareTag("PlayerTwo"))
+        if (collision.gameObject.CompareTag("PlayerTwo"))
         {
             //Debug.Log("Player two off point");
             playerTwoOnPoint = false;
