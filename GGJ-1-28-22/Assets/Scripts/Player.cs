@@ -33,10 +33,21 @@ public class Player : MonoBehaviour
 
     }
 
+    public void OnInteract(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Interact");
+    }
+
     public void OnMove(InputAction.CallbackContext ctx) 
     {
 
         movementInput = ctx.ReadValue<Vector2>();
+        
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }

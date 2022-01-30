@@ -15,6 +15,7 @@
                 },
                 {
                     "name": "MoveRiftLeft",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "9dc732c5-94dc-4039-9e23-371cf9a04efd",
                     "expectedControlType": "Button",
@@ -167,10 +168,25 @@
                     "name": "",
                     "id": "71db11be-2a28-4404-ad3d-cfaef3beda3b",
                     "path": "<Keyboard>/e",
+                    "id": "2b3bfd02-0cae-4190-939e-89f60595dfee",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerOne",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "835fb1bf-0927-422d-96c1-d45ed20c2429",
+                    "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayerTwo;PlayerOne",
                     "action": "MoveRiftRight",
+                    "groups": "PlayerTwo",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
