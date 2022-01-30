@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager2 : MonoBehaviour
 {
     private Queue<string> sentences;
     public TMP_Text nameText;
@@ -42,8 +42,9 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence(string sentence)
     {
+        yield return new WaitForSeconds(4);
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
