@@ -713,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 0}
   dialogueText: {fileID: 113144016}
+  level: Level01
 --- !u!4 &209923144
 Transform:
   m_ObjectHideFlags: 0
