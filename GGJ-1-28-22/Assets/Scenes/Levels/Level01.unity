@@ -197,7 +197,8 @@ PrefabInstance:
       propertyPath: lineParticles
       value: 
       objectReference: {fileID: 630348837}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5734609044647149424, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
 --- !u!1 &400501568
 GameObject:
