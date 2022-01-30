@@ -15,17 +15,20 @@ public class Player : MonoBehaviour
 
         transform.Translate(new Vector3(movementInput.x, movementInput.y, 0) * speed * Time.deltaTime);
 
+        // Sets the amounts needed for the animation
         animator.SetFloat("Horizontal", movementInput.x);
         animator.SetFloat("Vertical", movementInput.y);
         animator.SetFloat("Magnitude", movementInput.magnitude);
 
+        // Flips the sprite depending on if
+        // the character is going left or right
         if (movementInput.x > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-2, 2, 2);
         }
         else if (movementInput.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(2, 2, 2);
         }
 
     }
