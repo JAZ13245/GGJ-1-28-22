@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -235,14 +235,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7e1f0e91408434a9e4322f6d36e970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 2800000, guid: c8494a06f319f7648ace3b5c1b496583, type: 3}
+  map: {fileID: 2800000, guid: 6a89019cbbfa12145bc5e7ab757294c5, type: 3}
   colorMappings:
-  - color: {r: 0, g: 0, b: 0, a: 0}
-    prefab: {fileID: 2133342504956453668, guid: 2e086137f19e6f5458ed09f1fc94c9c4, type: 3}
-  - color: {r: 0, g: 0.63529414, b: 0.9098039, a: 0}
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    prefab: {fileID: 8982756045214054271, guid: aab8709132a344c40a95e3d29a4fa058, type: 3}
+  - color: {r: 0, g: 0.63529414, b: 0.9098039, a: 1}
     prefab: {fileID: 1988199979222450432, guid: 87c247d48e7300d45a68053e28cb14fe, type: 3}
-  - color: {r: 0.53333336, g: 0, b: 0.08235294, a: 0}
-    prefab: {fileID: 7576095951986609594, guid: e06dabfed3d473e47b392c1d527c1636, type: 3}
+  - color: {r: 0.53333336, g: 0, b: 0.08235294, a: 1}
+    prefab: {fileID: 1988199979222450432, guid: 87c247d48e7300d45a68053e28cb14fe, type: 3}
 --- !u!4 &587263944
 Transform:
   m_ObjectHideFlags: 0
