@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
+    
     public static bool paused = false;
     public GameObject menu;
 
@@ -17,6 +19,8 @@ public class PauseManager : MonoBehaviour
     private void OnEnable()
     {
         action.Enable();
+        Time.timeScale = 1;
+        paused = false;
     }
 
     private void OnDisable()
