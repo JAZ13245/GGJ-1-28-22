@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject playerPrefab;
     public Animator animator;
     private bool nearBox = false;
+    private bool isCarrying = false;
 
     void Update()
     {
