@@ -12,8 +12,6 @@ public class RiftLine : MonoBehaviour
 
     LineRenderer theLine;
 
-    LineRenderer playerLine;
-
     private bool leftHeld;
     private bool rightHeld;
 
@@ -29,7 +27,6 @@ public class RiftLine : MonoBehaviour
         rightHeld = false;
 
         theLine = this.GetComponent<LineRenderer>();
-        playerLine = gm.GetComponent<LineRenderer>();
 
         theLine.SetColors(Color.red, Color.cyan);
         //theLine.colorGradient = Gradient.
@@ -44,12 +41,51 @@ public class RiftLine : MonoBehaviour
 
         playerOnePos = gm.playerOne.transform.position;
         playerTwoPos = gm.playerTwo.transform.position;
-        
+
+        Move();
+        SetAngle();
+
+        if (angle >= 360 || angle <= -360) { angle = 0; }
+    }
+
+    public void LeftHeld(InputAction.CallbackContext context)
+    {
+        if (context.started) { leftHeld = true; }
+        if (context.canceled) { leftHeld = false; }
+    }
+
+    public void RightHeld(InputAction.CallbackContext context)
+    {
+        if (context.started) { rightHeld = true; }
+        if (context.canceled) { rightHeld = false; }
+    }
+
+    private void Move()
+    {
+        if (rightHeld) { angle--; }
+        if (leftHeld) { angle++; }
+    }
+
+    private void SetAngle()
+    {
+        RiftMask.transform.rotation = Quaternion.identity;
+        RiftMask.transform.Rotate(new Vector3(0, 0, angle));
+
+        float newAngle = angle;
+        angle *= Mathf.Deg2Rad;
+        theLine.SetPosition(0, new Vector3(Mathf.Cos(angle) * 6, Mathf.Sin(angle) * 6, -9));
+        theLine.SetPosition(2, new Vector3(Mathf.Cos(angle + Mathf.PI) * 6, Mathf.Sin(angle + Mathf.PI) * 6, -9));
+        angle = newAngle;
+    }
+}
+
+
+/*
         gm.GetComponent<LineRenderer>().SetPosition(1, (playerOnePos + (playerTwoPos - playerOnePos) / 2));
         /*
         gm.GetComponent<LineRenderer>().SetPosition(1, new Vector3(Mathf.Abs(gm.GetComponent<LineRenderer>().GetPosition(1).x),
              Mathf.Abs(gm.GetComponent<LineRenderer>().GetPosition(1).y),-9));
-        */
+        
         gm.GetComponent<LineRenderer>().SetPosition(0, new Vector3(gm.GetComponent<LineRenderer>().GetPosition(1).x, 0, -9));
         gm.GetComponent<LineRenderer>().SetPosition(2, new Vector3(0, 0, -9));
         gm.GetComponent<LineRenderer>().SetPosition(3, (playerOnePos + (playerTwoPos - playerOnePos) / 2));
@@ -72,7 +108,7 @@ public class RiftLine : MonoBehaviour
         if(v1.x < 0 && v1.y > 0) { quadrant = 2; }
         if(v1.x < 0 && v1.y < 0) { quadrant = 3; }
         if(v1.x > 0 && v1.y < 0) { quadrant = 4; }
-        /*
+        
         int rightPlayer;
         int topPlayer;
 
@@ -98,7 +134,7 @@ public class RiftLine : MonoBehaviour
         if (quadrant == 2 && topPlayer == 1) { quadrant = 4; }
         else if (quadrant == 3 && topPlayer == 1) { quadrant = 1; }
         else if (quadrant == 4 && topPlayer == 2) { quadrant = 2; }
-        */
+        
 
         if (quadrant == 1)
         {
@@ -119,52 +155,4 @@ public class RiftLine : MonoBehaviour
             angle = Mathf.Asin(l4 / l3) * Mathf.Rad2Deg;
             angle += 270;
         }
-
-        
-        
-
-
-
-
-
-
-
-
-        SetAngle();
-        GetDistanceApart();
-
-        if (angle >= 360 || angle <= -360) { angle = 0; }
-    }
-
-    private void SetAngle()
-    {
-        RiftMask.transform.rotation = Quaternion.identity;
-        RiftMask.transform.Rotate(new Vector3(0, 0, angle));
-
-        float newAngle = angle;
-        angle *= Mathf.Deg2Rad;
-        theLine.SetPosition(0, new Vector3(Mathf.Cos(angle) * 6, Mathf.Sin(angle) * 6, -9));
-        theLine.SetPosition(2, new Vector3(Mathf.Cos(angle + Mathf.PI) * 6, Mathf.Sin(angle + Mathf.PI) * 6, -9));
-        angle = newAngle;
-    }
-
-    private void GetDistanceApart()
-    {
-        
-        Vector2 pivot = new Vector3(0, 0);
-     
-        CompareValues(playerOnePos.x,playerTwoPos.x);
-        CompareValues(playerOnePos.y,playerTwoPos.y);
-
-
-        float CompareValues(float first,float second)
-        {
-            return Mathf.Abs(first - second);
-        }
-        float GiveBetweenValue(float first,float second)
-        {
-            return Mathf.Abs(first - second);
-        }
-    }
-}
-
+        */
