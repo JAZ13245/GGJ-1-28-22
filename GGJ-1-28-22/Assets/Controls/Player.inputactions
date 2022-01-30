@@ -14,9 +14,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "New action",
+                    "name": "MoveRiftLeft",
                     "type": "Button",
                     "id": "9dc732c5-94dc-4039-9e23-371cf9a04efd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveRiftRight",
+                    "type": "Button",
+                    "id": "01e766c6-6eab-4986-849a-350eab321d5e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -147,11 +155,22 @@
                 {
                     "name": "",
                     "id": "fc55e988-5b27-4b05-9155-bcffcb6a9908",
-                    "path": "",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "New action",
+                    "groups": "PlayerOne;PlayerTwo",
+                    "action": "MoveRiftLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71db11be-2a28-4404-ad3d-cfaef3beda3b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerTwo;PlayerOne",
+                    "action": "MoveRiftRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
