@@ -6,8 +6,14 @@ public class LevelGenerator : MonoBehaviour
 {
     public Texture2D map;
     public ColorToPrefab[] colorMappings;
+
+    public GameObject playerOnePrefab;
+    public GameObject playerTwoPrefab;
+
     public PlayerInput playerOne;
     public PlayerInput playerTwo;
+
+    public GameObject[] spawnOut = new GameObject[5];
 
 
     void Start()
@@ -26,8 +32,7 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
-    //playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
-        //playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
+
     void GenerateTile(int x, int y)
     {
         Color pixelColor = map.GetPixel(x, y);
@@ -41,16 +46,47 @@ public class LevelGenerator : MonoBehaviour
         //Debug.Log(pixelColor);
         foreach (ColorToPrefab colorMapping in colorMappings)
         {
-            Debug.Log(colorMapping.prefab.name);
+            float newX = (float)(.4 * x + .2);
+            float newY = (float)(.4 * y + .2);
+            Vector3 position = new Vector3(newX - 4, newY - 3, -9);
+            
             //Debug.Log(colorMapping.color);
-            if (colorMapping.color.Equals(pixelColor))
+            if (!(colorMapping.prefab.name == "PlayerOne" || colorMapping.prefab.name == "PlayerTwo"))
             {
-                Debug.Log("Equals");
-                float newX = (float)(.4 * x + .2);
-                float newY = (float)(.4 * y + .2);
-                Vector3 position = new Vector3(newX - 4, newY - 3, 0);
-                Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
+                if (colorMapping.color.Equals(pixelColor))
+                {
+                    Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
+                }
+
+                if (colorMapping.color.Equals(Color.yellow))
+                {
+                    for (int i = 0; i < spawnOut.Length; i++)
+                    {
+                        if (spawnOut[i] == null)
+                        {
+                            spawnOut[i] = colorMapping.prefab;
+                            break;
+                        }
+                    }
+                }
             }
+            else
+            {
+                if (colorMapping.color.Equals(pixelColor))
+                {
+                    if(colorMapping.prefab.name == "PlayerOne")
+                    {
+                        playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
+                        playerOnePrefab.transform.position = position;
+                    }
+                    else
+                    {
+                        playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
+                        playerTwoPrefab.transform.position = position;
+                    }
+                }
+            } 
+            
         }
     }
 }

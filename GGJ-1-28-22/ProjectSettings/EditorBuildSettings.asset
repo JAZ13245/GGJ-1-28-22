@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Options.unity
     guid: 39fd386de78c53b4694944b153f51793
   - enabled: 0
-    path: Assets/Scenes/ResumeOptions.unity
+    path: 
     guid: 41dc01598f8972849908da1628b01b31
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level01.unity
+    guid: 68c68793fbf8de14288f057e797b020d
   m_configObjects: {}

@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 public class RiftLine : MonoBehaviour
 {
     public GameObject RiftMask;
-    public GameManager gm;
+    public LevelGenerator lg;
     public float angle;
     //public int quadrant;
 
     public BoxCollider2D lineCollision;
+    public GameObject lineParticles;
     Rigidbody2D lineRigidBody;
     LineRenderer theLine;
     
@@ -49,8 +50,8 @@ public class RiftLine : MonoBehaviour
         Vector3 startPoint = theLine.GetPosition(0);
         Vector3 endPoint= theLine.GetPosition(1);
 
-        playerOnePos = gm.playerOne.transform.position;
-        playerTwoPos = gm.playerTwo.transform.position;
+        playerOnePos = lg.playerOne.transform.position;
+        playerTwoPos = lg.playerTwo.transform.position;
 
         playerOneQuadrant = GetQuadrant(playerOnePos);
         playerTwoQuadrant = GetQuadrant(playerTwoPos);
@@ -76,7 +77,7 @@ public class RiftLine : MonoBehaviour
             }
             if (playerTwoQuadrant == 4)
             {
-                return 360;
+                return 0;
             }
         }
         else if (playerOneQuadrant == 2)
@@ -129,18 +130,7 @@ public class RiftLine : MonoBehaviour
 
     private void ShiftAngle(int desiredAngle)
     {
-        if((desiredAngle == 360 || desiredAngle == 0)&&angle!=0 && angle != 360)
-        {
-            if(360-angle >= 180)
-            {
-                angle -= 1;
-            }
-            else
-            {
-                angle += 1;
-            }
-        }
-        else if (desiredAngle != angle)
+        if (desiredAngle != angle)
         {
             if (desiredAngle > angle)
             {
@@ -163,6 +153,9 @@ public class RiftLine : MonoBehaviour
 
         lineCollision.transform.rotation = Quaternion.identity;
         lineCollision.transform.Rotate(new Vector3(0, 0, angle));
+
+        lineParticles.transform.rotation = Quaternion.identity;
+        lineParticles.transform.Rotate(new Vector3(0, 0, angle));
 
         float newAngle = angle;
         angle *= Mathf.Deg2Rad;
