@@ -83,26 +83,26 @@ public class RiftLine : MonoBehaviour
         {
             if (playerTwoQuadrant == 1)
             {
-                return 270;
+                return 90;
             }
             if (playerTwoQuadrant == 3)
             {
-                return 180;
+                return 0;
             }
             if (playerTwoQuadrant == 4)
             {
-                return 180;
+                return 45;
             }
         }
         else if (playerOneQuadrant == 3)
         {
             if (playerTwoQuadrant == 1)
             {
-                return 315;
+                return 135;
             }
             if (playerTwoQuadrant == 2)
             {
-                return 360;
+                return 180;
             }
             if (playerTwoQuadrant == 4)
             {
@@ -113,7 +113,7 @@ public class RiftLine : MonoBehaviour
         {
             if (playerTwoQuadrant == 1)
             {
-                return 0;
+                return 180;
             }
             if (playerTwoQuadrant == 2)
             {
@@ -121,7 +121,7 @@ public class RiftLine : MonoBehaviour
             }
             if (playerTwoQuadrant == 3)
             {
-                return 90;
+                return 270;
             }
         }
         return -1;
