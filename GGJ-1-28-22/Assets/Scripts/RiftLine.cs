@@ -8,6 +8,7 @@ public class RiftLine : MonoBehaviour
     public GameObject RiftMask;
     public GameManager gm;
     public float angle;
+    public int quadrant;
 
     LineRenderer theLine;
 
@@ -22,6 +23,7 @@ public class RiftLine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        quadrant = 0;
         angle = 0;
         leftHeld = false;
         rightHeld = false;
@@ -66,11 +68,37 @@ public class RiftLine : MonoBehaviour
         float l3 = (v2 - v3).magnitude;
         float l4 = (v3 - v4).magnitude;
         
-        int quadrant = 0;
         if(v1.x > 0 && v1.y > 0) { quadrant = 1; }
         if(v1.x < 0 && v1.y > 0) { quadrant = 2; }
         if(v1.x < 0 && v1.y < 0) { quadrant = 3; }
         if(v1.x > 0 && v1.y < 0) { quadrant = 4; }
+        /*
+        int rightPlayer;
+        int topPlayer;
+
+
+        if (playerTwoPos.y > playerOnePos.y)
+        {
+            topPlayer = 2;
+        }
+        else
+        {
+            topPlayer = 1;
+        }
+        if (playerTwoPos.x > playerOnePos.x)
+        {
+            rightPlayer = 2;
+        }
+        else
+        {
+            rightPlayer = 1;
+        }
+
+        //if (quadrant == 1 && topPlayer == 2) { quadrant = 3; }
+        if (quadrant == 2 && topPlayer == 1) { quadrant = 4; }
+        else if (quadrant == 3 && topPlayer == 1) { quadrant = 1; }
+        else if (quadrant == 4 && topPlayer == 2) { quadrant = 2; }
+        */
 
         if (quadrant == 1)
         {
@@ -78,21 +106,22 @@ public class RiftLine : MonoBehaviour
         }
         if (quadrant == 2)
         {
-            angle = Mathf.Asin(l1 / l3) * Mathf.Rad2Deg;
-            //angle += 90;
+            angle = Mathf.Asin(l4 / l3) * Mathf.Rad2Deg;
+            angle += 90;
         }
         else if (quadrant == 3)
         {
             angle = Mathf.Asin(l1 / l2) * Mathf.Rad2Deg;
-            //angle += 180;
+            angle += 180;
         }
         else if (quadrant == 4)
         {
-            angle = Mathf.Asin(l1 / l3) * Mathf.Rad2Deg;
-            //angle += 270;
+            angle = Mathf.Asin(l4 / l3) * Mathf.Rad2Deg;
+            angle += 270;
         }
 
-
+        
+        
 
 
 
