@@ -8,14 +8,16 @@ public class Player : MonoBehaviour
     private float speed = 1.5f;
     private Vector2 movementInput;
     public GameObject playerPrefab;
-    private InputControl lastKeyPressed;
-    private InputAction.CallbackContext lastCtx;
-    private Vector2 lastMovementInput;
+    public Animator animator;
 
     void Update()
     {
 
         transform.Translate(new Vector3(movementInput.x, movementInput.y, 0) * speed * Time.deltaTime);
+
+        animator.SetFloat("Horizontal", movementInput.x);
+        animator.SetFloat("Vertical", movementInput.y);
+        animator.SetFloat("Magnitude", movementInput.magnitude);
 
     }
 
