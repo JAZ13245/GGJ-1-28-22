@@ -166,6 +166,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9dc732c5-94dc-4039-9e23-371cf9a04efd
     m_ActionName: Gameplay/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 01e766c6-6eab-4986-849a-350eab321d5e
+    m_ActionName: Gameplay/MoveRiftRight[/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7650754827205621509}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnCarry
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0fb58686-e9c3-44b5-9dea-37b80d05a344
+    m_ActionName: Gameplay/Carry[/Keyboard/space,/Keyboard/rightCtrl]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: PlayerOne
   m_DefaultActionMap: Gameplay

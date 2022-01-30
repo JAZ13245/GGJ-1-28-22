@@ -484,7 +484,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 0.28}
+  m_Size: {x: 0.38, y: 0.38}
   m_EdgeRadius: 0
 --- !u!1 &342697047 stripped
 GameObject:
@@ -515,7 +515,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 0.28}
+  m_Size: {x: 0.38, y: 0.38}
   m_EdgeRadius: 0
 --- !u!1 &470353437
 GameObject:
@@ -598,6 +598,8 @@ MonoBehaviour:
   gm: {fileID: 1864266969}
   angle: 0
   lineCollision: {fileID: 1253442996}
+  playerOneQuadrant: 0
+  playerTwoQuadrant: 0
 --- !u!120 &922394447
 LineRenderer:
   m_ObjectHideFlags: 0
