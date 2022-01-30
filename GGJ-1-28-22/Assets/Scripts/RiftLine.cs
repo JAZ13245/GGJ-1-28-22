@@ -29,11 +29,9 @@ public class RiftLine : MonoBehaviour
         theLine = this.GetComponent<LineRenderer>();
         playerLine = gm.GetComponent<LineRenderer>();
 
-        theLine.SetColors(Color.cyan, Color.cyan);
+        theLine.SetColors(Color.red, Color.cyan);
+        //theLine.colorGradient = Gradient.
         theLine.SetPosition(1, new Vector3(0,0,-9));
-
-
-        playerLine = gameObject.AddComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -44,35 +42,63 @@ public class RiftLine : MonoBehaviour
 
         playerOnePos = gm.playerOne.transform.position;
         playerTwoPos = gm.playerTwo.transform.position;
-
         
         gm.GetComponent<LineRenderer>().SetPosition(1, (playerOnePos + (playerTwoPos - playerOnePos) / 2));
-        gm.GetComponent<LineRenderer>().SetPosition(0, new Vector3(gm.GetComponent<LineRenderer>().GetPosition(1).x, 0,-9));
-        gm.GetComponent<LineRenderer>().SetPosition(2, new Vector3(0,0,-9));
+        /*
+        gm.GetComponent<LineRenderer>().SetPosition(1, new Vector3(Mathf.Abs(gm.GetComponent<LineRenderer>().GetPosition(1).x),
+             Mathf.Abs(gm.GetComponent<LineRenderer>().GetPosition(1).y),-9));
+        */
+        gm.GetComponent<LineRenderer>().SetPosition(0, new Vector3(gm.GetComponent<LineRenderer>().GetPosition(1).x, 0, -9));
+        gm.GetComponent<LineRenderer>().SetPosition(2, new Vector3(0, 0, -9));
+        gm.GetComponent<LineRenderer>().SetPosition(3, (playerOnePos + (playerTwoPos - playerOnePos) / 2));
+        gm.GetComponent<LineRenderer>().SetPosition(4, new Vector3(0, gm.GetComponent<LineRenderer>().GetPosition(1).y, -9));
 
-        float l1 = (gm.GetComponent<LineRenderer>().GetPosition(0) - gm.GetComponent<LineRenderer>().GetPosition(1)).magnitude;
-        float l2 = (gm.GetComponent<LineRenderer>().GetPosition(1) - gm.GetComponent<LineRenderer>().GetPosition(2)).magnitude;
-        angle = Mathf.Asin(l1 / l2) * Mathf.Rad2Deg;
-        if (gm.GetComponent<LineRenderer>().GetPosition(0).y < gm.GetComponent<LineRenderer>().GetPosition(1).y)
+
+        Vector3 v0 = gm.GetComponent<LineRenderer>().GetPosition(0);
+        Vector3 v1 = gm.GetComponent<LineRenderer>().GetPosition(1);
+        Vector3 v2 = gm.GetComponent<LineRenderer>().GetPosition(2);
+        Vector3 v3 = gm.GetComponent<LineRenderer>().GetPosition(3);
+        Vector3 v4 = gm.GetComponent<LineRenderer>().GetPosition(4);
+
+
+        float l1 = (v0 - v1).magnitude;
+        float l2 = (v1 - v2).magnitude;
+        float l3 = (v2 - v3).magnitude;
+        float l4 = (v3 - v4).magnitude;
+        
+        int quadrant = 0;
+        if(v1.x > 0 && v1.y > 0) { quadrant = 1; }
+        if(v1.x < 0 && v1.y > 0) { quadrant = 2; }
+        if(v1.x < 0 && v1.y < 0) { quadrant = 3; }
+        if(v1.x > 0 && v1.y < 0) { quadrant = 4; }
+
+        if (quadrant == 1)
         {
-            angle *= -1;
+            angle = Mathf.Asin(l1 / l2) * Mathf.Rad2Deg;
         }
-        if (gm.GetComponent<LineRenderer>().GetPosition(0).x > 0)
+        if (quadrant == 2)
         {
-            angle += 180;
-            angle *= -1;
+            angle = Mathf.Asin(l1 / l3) * Mathf.Rad2Deg;
+            //angle += 90;
+        }
+        else if (quadrant == 3)
+        {
+            angle = Mathf.Asin(l1 / l2) * Mathf.Rad2Deg;
+            //angle += 180;
+        }
+        else if (quadrant == 4)
+        {
+            angle = Mathf.Asin(l1 / l3) * Mathf.Rad2Deg;
+            //angle += 270;
         }
 
-        //angle = Mathf.Asin(gm.GetComponent<LineRenderer>().GetPosition(0));
-        //angle = Vector2.Angle(new Vector3(0, 0),(playerOnePos + (playerTwoPos - playerOnePos) / 2))*Mathf.Deg2Rad;
-
-        //Vector3 pos1 = playerOnePos + (playerTwoPos - playerOnePos);
-        //Vector3 pos2 = new Vector3(0, 0, -9);
-        //float length = (pos2 - pos1).magnitude;
 
 
 
-        //Mathf.Acos(length/0);
+
+
+
+
 
 
         SetAngle();
@@ -100,10 +126,6 @@ public class RiftLine : MonoBehaviour
      
         CompareValues(playerOnePos.x,playerTwoPos.x);
         CompareValues(playerOnePos.y,playerTwoPos.y);
-
-        Debug.Log("x:"+CompareValues(playerOnePos.x, playerTwoPos.x));
-        Debug.Log("y:" + CompareValues(playerOnePos.y, playerTwoPos.y));
-
 
 
         float CompareValues(float first,float second)
