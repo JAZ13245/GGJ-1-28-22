@@ -19,6 +19,15 @@ public class Player : MonoBehaviour
         animator.SetFloat("Vertical", movementInput.y);
         animator.SetFloat("Magnitude", movementInput.magnitude);
 
+        if (movementInput.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (movementInput.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
     }
 
     public void OnMove(InputAction.CallbackContext ctx) 
