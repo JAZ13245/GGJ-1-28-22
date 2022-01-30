@@ -1,5 +1,5 @@
 {
-    "name": "PlayerOne",
+    "name": "Player",
     "maps": [
         {
             "name": "Gameplay",
@@ -10,6 +10,14 @@
                     "type": "Value",
                     "id": "859c5884-8b95-41df-9572-62f0a5889abf",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "9dc732c5-94dc-4039-9e23-371cf9a04efd",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -133,6 +141,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc55e988-5b27-4b05-9155-bcffcb6a9908",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
