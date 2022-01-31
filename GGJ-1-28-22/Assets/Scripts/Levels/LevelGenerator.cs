@@ -27,7 +27,6 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int y = 0; y < map.height; y++)
             {
-                //Debug.Log(x + " " + y);
                 GenerateTile(x, y);
             }
         }
@@ -37,56 +36,57 @@ public class LevelGenerator : MonoBehaviour
     {
         Color pixelColor = map.GetPixel(x, y);
 
-        if (pixelColor.Equals(Color.white))
-        {
-            //If pixel is white
-            return;
-        }
-        //Debug.Log(x + " " + y);
+        float newX = (float)(.4 * x + .2);
+        float newY = (float)(.4 * y + .2);
+
+        Vector3 floorPosition = new Vector3(newX - 4, newY - 3, -1);
+        Vector3 position = new Vector3(newX - 4, newY - 3, -2);
+        Vector3 playerPosition = new Vector3(newX - 4, newY - 3, -9);
+
+        Debug.Log(x + " " + y);
         //Debug.Log(pixelColor);
         foreach (ColorToPrefab colorMapping in colorMappings)
         {
-            float newX = (float)(.4 * x + .2);
-            float newY = (float)(.4 * y + .2);
-            Vector3 position = new Vector3(newX - 4, newY - 3, -9);
             
-            //Debug.Log(colorMapping.color);
-            if (!(colorMapping.prefab.name == "PlayerOne" || colorMapping.prefab.name == "PlayerTwo"))
+            if (colorMapping.color != colorMappings[3].color)
             {
-                if (colorMapping.color.Equals(pixelColor))
+                Debug.Log(colorMapping.color);
+                Debug.Log(pixelColor);
+                Instantiate(colorMappings[5].prefab, floorPosition, Quaternion.identity, transform);
+                Instantiate(colorMappings[6].prefab, floorPosition, Quaternion.identity, transform);
+            }
+            
+            if (colorMapping.color.Equals(pixelColor))
+            {
+                if (!(colorMapping.prefab.name == "PlayerOne" || colorMapping.prefab.name == "PlayerTwo"))
                 {
                     Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
-                }
 
-                if (colorMapping.color.Equals(Color.yellow))
-                {
+                    //Spawn out loop
                     for (int i = 0; i < spawnOut.Length; i++)
                     {
-                        if (spawnOut[i] == null)
+                        if (spawnOut[i] == null && colorMapping.color.Equals(colorMappings[0].color))
                         {
                             spawnOut[i] = colorMapping.prefab;
                             break;
                         }
                     }
                 }
-            }
-            else
-            {
-                if (colorMapping.color.Equals(pixelColor))
+
+                else
                 {
-                    if(colorMapping.prefab.name == "PlayerOne")
+                    if (colorMapping.prefab.name == "PlayerOne")
                     {
                         playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
-                        playerOnePrefab.transform.position = position;
+                        playerOnePrefab.transform.position = playerPosition;
                     }
                     else
                     {
                         playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
-                        playerTwoPrefab.transform.position = position;
+                        playerTwoPrefab.transform.position = playerPosition;
                     }
                 }
-            } 
-            
+            }
         }
     }
 }
