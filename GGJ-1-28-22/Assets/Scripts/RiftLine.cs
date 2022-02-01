@@ -60,7 +60,8 @@ public class RiftLine : MonoBehaviour
         ShiftAngle(GetLineQuad());
         SetAngle();
 
-        //if (angle >= 360 || angle <= -360) { angle = 0; }
+        if(angle < 0){ angle += 360; }
+        if (angle >= 360 || angle <= -360) { angle = 0; }
     }
 
     private int GetLineQuad()
@@ -132,12 +133,20 @@ public class RiftLine : MonoBehaviour
     {
         if (desiredAngle != angle)
         {
-            if (desiredAngle > angle)
+
+            if(desiredAngle == 0) {
+                if(angle > 180) { angle += 5; }
+                if(angle < 180) { angle -= 5; }
+            }
+            else if(angle == 0)
             {
+                if(desiredAngle > 180) { angle -= 5; }
+                if(desiredAngle < 180) { angle += 5; }
+            }
+            else if (desiredAngle > angle) {
                 angle += 5;
             }
-            else if (desiredAngle < angle)
-            {
+            else if (desiredAngle < angle) {
                 angle -= 5;
             }
         }
