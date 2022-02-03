@@ -8,6 +8,7 @@ public class RiftLine : MonoBehaviour
     public GameObject RiftMask;
     public LevelGenerator lg;
     public float angle;
+    public int lineStyle;
 
     public BoxCollider2D lineCollision;
     public GameObject lineParticles;
@@ -44,6 +45,7 @@ public class RiftLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector3 startPoint = theLine.GetPosition(0);
         Vector3 endPoint= theLine.GetPosition(1);
 
@@ -53,9 +55,17 @@ public class RiftLine : MonoBehaviour
         playerOneQuadrant = GetQuadrant(playerOnePos);
         playerTwoQuadrant = GetQuadrant(playerTwoPos);
 
-
-        ShiftAngle(GetLineQuad());
-        SetAngle();
+        if (lineStyle == 1) {
+            ShiftAngle(GetLineQuad());
+            SetAngle();
+        }
+        else if (lineStyle == 2) {
+            SetAngleAlt((playerOnePos + (playerTwoPos - playerOnePos) / 2));
+        }
+        else {
+            angle += 5;
+            SetAngle();
+        }
 
         if (angle < 0){ angle += 360; }
         if (angle >= 360 || angle <= -360) { angle = 0; }
@@ -125,6 +135,12 @@ public class RiftLine : MonoBehaviour
         angle = newAngle;
     }
 
+    private void SetAngleAlt(Vector3 lookinAt)
+    {
+        RiftMask.transform.rotation = Quaternion.LookRotation(lookinAt, lookinAt);
+        lineCollision.transform.rotation = Quaternion.LookRotation(lookinAt, lookinAt);
+        lineParticles.transform.rotation = Quaternion.LookRotation(lookinAt, lookinAt);
+    }
 
     // takes in a player's vector3 and returns what qudrant they're in
     private int GetQuadrant(Vector3 obj) {
