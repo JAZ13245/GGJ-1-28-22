@@ -57,7 +57,14 @@ public class Player : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         nearBox = true;
-        Debug.Log("Collide");
+        if(playerPrefab.name == "PlayerOne(Clone)" && collision.name == "FutureWall(Clone)")
+        {
+            Debug.Log("P1 Collide");
+        }
+        else if (playerPrefab.name == "PlayerTwo(Clone)" && collision.name == "PastWall(Clone)")
+        {
+            Debug.Log("P2 Collide");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
