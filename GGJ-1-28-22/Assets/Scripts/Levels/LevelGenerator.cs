@@ -43,19 +43,10 @@ public class LevelGenerator : MonoBehaviour
         Vector3 position = new Vector3(newX - 4, newY - 3, -2);
         Vector3 playerPosition = new Vector3(newX - 4, newY - 3, -9);
 
-        Debug.Log(x + " " + y);
+        //Debug.Log(x + " " + y);
         //Debug.Log(pixelColor);
         foreach (ColorToPrefab colorMapping in colorMappings)
         {
-            
-            if (colorMapping.color != colorMappings[3].color)
-            {
-                Debug.Log(colorMapping.color);
-                Debug.Log(pixelColor);
-                Instantiate(colorMappings[5].prefab, floorPosition, Quaternion.identity, transform);
-                Instantiate(colorMappings[6].prefab, floorPosition, Quaternion.identity, transform);
-            }
-            
             if (colorMapping.color.Equals(pixelColor))
             {
                 if (!(colorMapping.prefab.name == "PlayerOne" || colorMapping.prefab.name == "PlayerTwo"))
@@ -80,12 +71,20 @@ public class LevelGenerator : MonoBehaviour
                         playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
                         playerOnePrefab.transform.position = playerPosition;
                     }
-                    else
+                    else if (colorMapping.prefab.name == "PlayerTwo")
                     {
                         playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
                         playerTwoPrefab.transform.position = playerPosition;
                     }
                 }
+            }
+
+            if (colorMapping.color != colorMappings[3].color)
+            {
+                //Debug.Log(colorMapping.color);
+                //Debug.Log(pixelColor);
+                Instantiate(colorMappings[7].prefab, floorPosition, Quaternion.identity, transform);
+                Instantiate(colorMappings[8].prefab, floorPosition, Quaternion.identity, transform);
             }
         }
     }

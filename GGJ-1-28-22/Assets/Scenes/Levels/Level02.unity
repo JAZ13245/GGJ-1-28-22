@@ -518,6 +518,10 @@ PrefabInstance:
       value: LevelGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 7585523509175954619, guid: f874499b4f01cda498bb511203695294, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 2800000, guid: 8ed2805f11cb1cb469e569abb5752603, type: 3}
+    - target: {fileID: 7585523509175954619, guid: f874499b4f01cda498bb511203695294, type: 3}
       propertyPath: playerOnePrefab
       value: 
       objectReference: {fileID: 5668578137183354400, guid: 87c247d48e7300d45a68053e28cb14fe, type: 3}
