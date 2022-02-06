@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8342071013081933373}
   - component: {fileID: 8342071013081933372}
   - component: {fileID: 8342071013081933375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SteelBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

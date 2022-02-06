@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8982756045214054269}
   - component: {fileID: 8982756045214054270}
   - component: {fileID: 8982756045214054267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FutureWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

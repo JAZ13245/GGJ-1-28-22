@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5734609042677550144}
   - component: {fileID: 5734609042677550147}
   - component: {fileID: 5734609042677550146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RiftMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 5734609042830255499}
   - component: {fileID: 5734609042830255498}
   - component: {fileID: 5734609042830255509}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RiftLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,6 +183,7 @@ MonoBehaviour:
   RiftMask: {fileID: 5734609042677550145}
   lg: {fileID: 0}
   angle: 0
+  lineStyle: 0
   lineCollision: {fileID: 5734609044647149425}
   lineParticles: {fileID: 0}
   playerOneQuadrant: 0
@@ -366,7 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5734609044647149430}
   - component: {fileID: 5734609044647149425}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
