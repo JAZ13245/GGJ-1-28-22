@@ -81,8 +81,6 @@ public class LevelGenerator : MonoBehaviour
 
             if (colorMapping.color != colorMappings[3].color)
             {
-                //Debug.Log(colorMapping.color);
-                //Debug.Log(pixelColor);
                 Instantiate(colorMappings[7].prefab, floorPosition, Quaternion.identity, transform);
                 Instantiate(colorMappings[8].prefab, floorPosition, Quaternion.identity, transform);
             }

@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b190fbc7447b68144a9233033121b0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOnePrefab: {fileID: 1988199979222450432, guid: 87c247d48e7300d45a68053e28cb14fe, type: 3}
+  playerOnePrefab: {fileID: 5668578137183354400, guid: 87c247d48e7300d45a68053e28cb14fe, type: 3}
   playerTwoPrefab: {fileID: 7576095951986609594, guid: e06dabfed3d473e47b392c1d527c1636, type: 3}
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 0}
+  level: {fileID: 714112224202047151, guid: 08788284768081440bcbc9fa17fa99e8, type: 3}
 --- !u!120 &4446107012303465653
 LineRenderer:
   m_ObjectHideFlags: 0

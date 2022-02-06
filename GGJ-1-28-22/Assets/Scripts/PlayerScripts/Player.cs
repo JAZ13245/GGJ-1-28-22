@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private bool nearBox = false;
     private bool isCarrying = false;
     private Vector2 pos;
+
+    public Vector2 position { get { return pos; } }
     
     void Update()
     {
