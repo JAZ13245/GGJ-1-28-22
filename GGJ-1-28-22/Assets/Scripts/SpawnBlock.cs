@@ -37,6 +37,8 @@ public class SpawnBlock : MonoBehaviour
             Debug.Log("Player two on point");
             playerTwoOnPoint = true;
         }
+
+        Debug.Log("Test");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,6 +54,6 @@ public class SpawnBlock : MonoBehaviour
             //Debug.Log("Player two off point");
             playerTwoOnPoint = false;
         }
-
+        Debug.Log("Test");
     }
 }
