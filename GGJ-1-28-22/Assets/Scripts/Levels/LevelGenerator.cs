@@ -78,12 +78,16 @@ public class LevelGenerator : MonoBehaviour
                     }
                 }
             }
+        }
 
-            if (colorMapping.color != colorMappings[3].color)
-            {
-                Instantiate(colorMappings[7].prefab, floorPosition, Quaternion.identity, transform);
-                Instantiate(colorMappings[8].prefab, floorPosition, Quaternion.identity, transform);
-            }
+
+
+        if (pixelColor != colorMappings[3].color)
+        {
+            Instantiate(colorMappings[7].prefab, floorPosition, Quaternion.identity, transform);
+            Instantiate(colorMappings[8].prefab, floorPosition, Quaternion.identity, transform);
+            Debug.Log(x + " " + y);
+            //Debug.Log(pixelColor);
         }
     }
 }
