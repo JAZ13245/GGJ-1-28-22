@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
 
         pos = transform.position;
         //Debug.Log(pos);
+        //Debug.Log("Tet");
 
     }
 
@@ -59,11 +60,18 @@ public class Player : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         nearBox = true;
+
+        if(collision.gameObject.CompareTag("SpawnOut"))
+        {
+            Debug.Log("Spawn");
+        }
+        //Debug.Log("Near");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         nearBox = false;
+        //Debug.Log("Far");
     }
 
 }
