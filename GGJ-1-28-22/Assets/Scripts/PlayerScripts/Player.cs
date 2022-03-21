@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
         if(collision.gameObject.CompareTag("SpawnOut"))
         {
-            Debug.Log("Spawn");
+            //Debug.Log("Spawn");
         }
         //Debug.Log("Near");
     }

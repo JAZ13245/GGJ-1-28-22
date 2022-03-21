@@ -20,7 +20,7 @@ public class SpawnBlock : MonoBehaviour
     {
         if(playerOneOnPoint || playerTwoOnPoint)
         {
-            loader.GetComponent<LevelLoader>().LoadNextLevel();
+            //loader.GetComponent<LevelLoader>().LoadNextLevel();
         }
     }
 
