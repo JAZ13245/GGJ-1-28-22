@@ -41,7 +41,7 @@ public class LevelGenerator : MonoBehaviour
 
         Vector3 floorPosition = new Vector3(newX - 4, newY - 3, -1); // floor
         Vector3 position = new Vector3(newX - 4, newY - 3, -2); // wall
-        Vector3 playerPosition = new Vector3(newX - 4, newY - 3, -20);
+        Vector3 playerPosition = new Vector3(newX - 4, newY - 3, -9);
 
         //Debug.Log(x + " " + y);
         //Debug.Log(pixelColor);
