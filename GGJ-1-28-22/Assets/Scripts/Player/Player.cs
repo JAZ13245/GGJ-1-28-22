@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             Debug.Log("test");
         }
 
-        Debug.Log("Test");
+       // Debug.Log("Test");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
