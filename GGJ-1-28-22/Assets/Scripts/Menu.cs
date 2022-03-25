@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
+
 public class Menu : MonoBehaviour
 {
     public enum ButtonType
     {
         Start, Options, Exit
     }
-
+    public MenuButton[] buttons;
     public int currentSelection;
-    public List<GameObject> buttons;
-    public List<ButtonType> buttonTypes;
+    //public List<GameObject> buttons;
+    //public List<ButtonType> buttonTypes;
 
     // Start is called before the first frame update
     void Start()
@@ -27,28 +29,28 @@ public class Menu : MonoBehaviour
         int temp = 0;
         if (Input.GetKeyDown(KeyCode.UpArrow)) { 
             temp--;
-            buttons[currentSelection].GetComponent<SpriteRenderer>().color = Color.white;
-            Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttonTypes[currentSelection]);
+            buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+            Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow)) { 
             temp++;
-            buttons[currentSelection].GetComponent<SpriteRenderer>().color = Color.white;
-            Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttonTypes[currentSelection]);
+            buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+            Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
         }
         currentSelection += temp;
 
-        if(currentSelection >= buttons.Count) {
+        if(currentSelection >= buttons.Length) {
             currentSelection = 0;
         }
         else if (currentSelection < 0) {
-            currentSelection = buttons.Count - 1;
+            currentSelection = buttons.Length - 1;
         }
-        buttons[currentSelection].GetComponent<SpriteRenderer>().color = Color.blue;
+        buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
 
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            switch(buttonTypes[currentSelection])
+            switch(buttons[currentSelection].buttonType)
             {
                 case ButtonType.Start:
                     SceneManager.LoadScene("Level01");
@@ -63,5 +65,12 @@ public class Menu : MonoBehaviour
                     break;
             }
         }
+    }
+    
+    [System.Serializable]
+    public class MenuButton
+    {
+        public GameObject button;
+        public ButtonType buttonType;
     }
 }
