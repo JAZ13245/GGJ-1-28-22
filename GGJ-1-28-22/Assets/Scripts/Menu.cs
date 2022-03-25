@@ -56,16 +56,12 @@ public class Menu : MonoBehaviour
                 case ButtonType.Options:
                     break;
                 case ButtonType.Exit:
+                    Application.Quit();
                     break;
                 default:
                     Debug.Log("Error: no menu button selection");
                     break;
             }
         }
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
     }
 }
