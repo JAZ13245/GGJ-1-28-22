@@ -43,7 +43,7 @@ public class Menu : MonoBehaviour
         else if (currentSelection < 0) {
             currentSelection = buttons.Count - 1;
         }
-        buttons[currentSelection].GetComponent<SpriteRenderer>().color = Color.red;
+        buttons[currentSelection].GetComponent<SpriteRenderer>().color = Color.blue;
 
 
         if (Input.GetKeyDown(KeyCode.Return))
