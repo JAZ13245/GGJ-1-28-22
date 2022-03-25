@@ -43,10 +43,7 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext ctx) 
     {
-
         movementInput = ctx.ReadValue<Vector2>();
-        
-
     }
 
     public void OnCarry(InputAction.CallbackContext ctx)
@@ -55,6 +52,16 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Carrying");
         }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "SpawnOut")
+        {
+            //Debug.Log("test");
+        }
+
+       // Debug.Log("Test");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
