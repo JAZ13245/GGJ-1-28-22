@@ -55,6 +55,7 @@ public class RiftLine : MonoBehaviour
         playerOneQuadrant = GetQuadrant(playerOnePos);
         playerTwoQuadrant = GetQuadrant(playerTwoPos);
 
+
         if (lineStyle == 1) {
             ShiftAngle(GetLineQuad());
             SetAngle();
@@ -62,8 +63,13 @@ public class RiftLine : MonoBehaviour
         else if (lineStyle == 2) {
             SetAngleAlt((playerOnePos + (playerTwoPos - playerOnePos) / 2));
         }
-        else {
+        else if (lineStyle == 3)
+        {
             angle += 5;
+            SetAngle();
+        }
+        else
+        {
             SetAngle();
         }
 
