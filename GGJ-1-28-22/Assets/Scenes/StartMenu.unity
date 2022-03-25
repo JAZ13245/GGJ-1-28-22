@@ -317,12 +317,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156dbe54c0357d9438bce057e5cd341a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSelection: 0
   buttons:
-  - {fileID: 78214403}
-  - {fileID: 1732165537}
-  - {fileID: 108507147}
-  buttonTypes: 000000000100000002000000
+  - button: {fileID: 78214403}
+    buttonType: 0
+  - button: {fileID: 1732165537}
+    buttonType: 1
+  - button: {fileID: 108507147}
+    buttonType: 2
+  currentSelection: 0
 --- !u!4 &250247322
 Transform:
   m_ObjectHideFlags: 0
