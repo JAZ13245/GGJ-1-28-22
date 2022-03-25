@@ -55,7 +55,7 @@ public class RiftLine : MonoBehaviour
         playerOneQuadrant = GetQuadrant(playerOnePos);
         playerTwoQuadrant = GetQuadrant(playerTwoPos);
 
-
+        // TODO: Implement Quadtree for Quadrants
         if (lineStyle == 1) {
             ShiftAngle(GetLineQuad());
             SetAngle();
