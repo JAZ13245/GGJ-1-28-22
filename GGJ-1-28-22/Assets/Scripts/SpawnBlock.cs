@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnBlock : MonoBehaviour
 {
-    bool playerOneOnPoint = false;
-    bool playerTwoOnPoint = false;
+    public bool playerOneOnPoint;
+    public bool playerTwoOnPoint;
 
     public GameObject loader;
 
@@ -18,6 +18,8 @@ public class SpawnBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Debug.Log(playerTwoOnPoint);
         if(playerOneOnPoint || playerTwoOnPoint)
         {
             //loader.GetComponent<LevelLoader>().LoadNextLevel();
@@ -28,17 +30,24 @@ public class SpawnBlock : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerOne"))
         {
-            Debug.Log("Player on point");
-            playerOneOnPoint = true;
+            //Debug.Log("Player on point");
+            //playerOneOnPoint = true;
         }
 
         if (collision.gameObject.CompareTag("PlayerTwo"))
         {
-            Debug.Log("Player two on point");
-            playerTwoOnPoint = true;
+            //Debug.Log("Player two on point");
+            //playerTwoOnPoint = true;
         }
 
-        Debug.Log("Test");
+        //Debug.Log("Collider");
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+
+
+        //Debug.Log("Test");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,8 +61,8 @@ public class SpawnBlock : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerTwo"))
         {
             //Debug.Log("Player two off point");
-            playerTwoOnPoint = false;
+            //playerTwoOnPoint = false;
         }
-        Debug.Log("Test");
+        //Debug.Log("Test");
     }
 }

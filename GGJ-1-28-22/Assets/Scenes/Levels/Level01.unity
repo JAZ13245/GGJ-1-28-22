@@ -599,6 +599,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7576095951986609594, guid: e06dabfed3d473e47b392c1d527c1636, type: 3}
     - target: {fileID: 7585523509175954619, guid: f874499b4f01cda498bb511203695294, type: 3}
+      propertyPath: spawnOut.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585523509175954619, guid: f874499b4f01cda498bb511203695294, type: 3}
       propertyPath: colorMappings.Array.size
       value: 9
       objectReference: {fileID: 0}
