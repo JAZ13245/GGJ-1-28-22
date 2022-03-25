@@ -13,6 +13,7 @@ public class SpawnBlock : MonoBehaviour
     void Start()
     {
         //yes
+        //playerTwoOnPoint = false;
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class SpawnBlock : MonoBehaviour
             //loader.GetComponent<LevelLoader>().LoadNextLevel();
         }
     }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -43,9 +45,20 @@ public class SpawnBlock : MonoBehaviour
         //Debug.Log("Collider");
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerTwo"))
+        {
+            playerTwoOnPoint = true;
+        }
+        else
+        {
+            playerTwoOnPoint = false;
+        }
+    }
+
     void OnCollisionStay2D(Collision2D collision)
     {
-
 
         //Debug.Log("Test");
     }

@@ -57,6 +57,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "SpawnOut")
+        {
+            Debug.Log("test");
+        }
+
+        Debug.Log("Test");
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         nearBox = true;

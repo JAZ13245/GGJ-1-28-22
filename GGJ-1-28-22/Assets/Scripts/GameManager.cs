@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour
     public GameObject playerOne;
     public GameObject playerTwo;
 
-
-
     private bool playerOneOnPoint;
     private bool playerTwoOnPoint;
 
@@ -46,7 +44,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
 
-        /*
+        
         for(int i = 0; i < spawnOut.Length; i++)
         {
             if(spawnOut[i] != null)
@@ -69,7 +67,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Success");
         }
-        */
+        
 
 
         /*if(Mathf.Abs(playerOnePrefab.GetComponent<Player>().position.x) > 300 
