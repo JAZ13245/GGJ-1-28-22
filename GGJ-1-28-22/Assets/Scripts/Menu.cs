@@ -4,63 +4,73 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
+
 public class Menu : MonoBehaviour
 {
     public enum ButtonType
     {
         Start, Options, Exit
     }
-
+    public MenuButton[] buttons;
     public int currentSelection;
-    public List<GameObject> buttons;
-    public List<Sprite> buttonSprites;
-    public List<Vector3> buttonTransforms;
-    public List<ButtonType> buttonTypes;
+    //public List<GameObject> buttons;
+    //public List<ButtonType> buttonTypes;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSelection = 0;
-        CreateButtons();
     }
 
     // Update is called once per frame
     void Update()
     {
         int temp = 0;
-        if (Input.GetKeyDown(KeyCode.UpArrow)) { temp--; }
-        if (Input.GetKeyDown(KeyCode.DownArrow)) { temp++; }
+        if (Input.GetKeyDown(KeyCode.UpArrow)) { 
+            temp--;
+            buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+            Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow)) { 
+            temp++;
+            buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+            Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
+        }
         currentSelection += temp;
 
-        if(currentSelection >= buttons.Count) {
+        if(currentSelection >= buttons.Length) {
             currentSelection = 0;
         }
         else if (currentSelection < 0) {
-            currentSelection = buttons.Count - 1;
+            currentSelection = buttons.Length - 1;
         }
+        buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
 
-        Debug.Log(currentSelection);
-    }
 
-    private void CreateButtons()
-    {
-        for (int i = 0; i < buttons.Count; i++)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            buttons[i] = Instantiate(new GameObject());
-            buttons[i].AddComponent<SpriteRenderer>();
-            buttons[i].GetComponent<SpriteRenderer>().sprite = buttonSprites[i];
-            buttons[i].transform.position = buttonTransforms[i];
+            switch(buttons[currentSelection].buttonType)
+            {
+                case ButtonType.Start:
+                    SceneManager.LoadScene("Level01");
+                    break;
+                case ButtonType.Options:
+                    break;
+                case ButtonType.Exit:
+                    Application.Quit();
+                    break;
+                default:
+                    Debug.Log("Error: no menu button selection");
+                    break;
+            }
         }
     }
-
-
-    private void LoadScene(string sceneName)
+    
+    [System.Serializable]
+    public class MenuButton
     {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
+        public GameObject button;
+        public ButtonType buttonType;
     }
 }
