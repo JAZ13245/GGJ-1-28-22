@@ -10,11 +10,12 @@ public class Object : MonoBehaviour
     // ids
     // 0 - static
     // 1 - box
+    // 2 - pressure plate
 
     public int itemID;
     public ItemState currentState;
 
-    public bool touchingPlayerOne, touchingPlayerTwo;
+    public bool touchingPlayerOne, touchingPlayerTwo, touchingBox, powered;
     
 
     public GameManager gameManager;
@@ -27,7 +28,7 @@ public class Object : MonoBehaviour
         {
             case 0: break;
             case 1: BoxUpdate(); break;
-            case 2: break;
+            case 2: PressurePlateUpdate(); break;
         }
 
     }
@@ -37,6 +38,13 @@ public class Object : MonoBehaviour
         // if colliding with either player, true
         if (c.gameObject.name.Contains("PlayerOne")) { touchingPlayerOne = true;  }
         if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayerTwo = true;  }
+        if (c.gameObject.name.Contains("Box")) { touchingBox = true; }
+        Debug.Log(gameObject.name + " touched by: " + c.gameObject.name);
+    }
+
+    void OnTriggerEnter2D(Collider2D c)
+    {
+        Debug.Log(gameObject.name + " entered by: " + c.gameObject.name);
 
     }
 
@@ -44,6 +52,8 @@ public class Object : MonoBehaviour
         // if leaving collision with either player, false
         if (c.gameObject.name.Contains("PlayerOne")) { touchingPlayerOne = false; }
         if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayerTwo = false; }
+        if (c.gameObject.name.Contains("Box")) { touchingBox = false; }
+
     }
 
     void BoxUpdate() {
@@ -74,6 +84,18 @@ public class Object : MonoBehaviour
         if(currentState == ItemState.HeldByPlayerOne || currentState == ItemState.HeldByPlayerTwo)
         {
             Hide();
+        }
+    }
+
+    void PressurePlateUpdate()
+    {
+        if (touchingBox || touchingPlayerOne || touchingPlayerTwo)
+        {
+            powered = true;
+        }
+        else
+        {
+            powered = false;
         }
     }
 
