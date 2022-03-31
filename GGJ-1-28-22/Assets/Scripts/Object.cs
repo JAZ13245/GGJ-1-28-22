@@ -11,18 +11,21 @@ public class Object : MonoBehaviour
     // 0 - static
     // 1 - box
     // 2 - pressure plate
-    // 3 - levers
+    // 3 - lever
+    // 4 - door
 
     public int itemID;
     public ItemState currentState;
 
-    public bool touchingPlayerOne, touchingPlayerTwo, touchingBox, powered;
-    
+    public bool touchingPlayerOne, touchingPlayerTwo, touchingBox, open, powered;
+
+    public GameObject powerSource;
 
     public GameManager gameManager;
     public BoxCollider2D grabCollider;
 
     void Start() {
+
     }
     void Update() {
         switch (itemID)
@@ -31,6 +34,7 @@ public class Object : MonoBehaviour
             case 1: BoxUpdate(); break;
             case 2: PressurePlateUpdate(); break;
             case 3: LeverUpdate(); break;
+            case 4: DoorUpdate(); break;
         }
 
     }
@@ -101,6 +105,21 @@ public class Object : MonoBehaviour
             else { powered = false; }
         }
     }
+
+    void DoorUpdate()
+    {
+        if (powerSource.GetComponent<Object>().powered)
+        {
+            open = true;
+            Hide();
+        }
+        else
+        {
+            open = false;
+            Show();
+        }
+    }
+
     void Hide()
     {
         GetComponent<SpriteRenderer>().enabled = false;
