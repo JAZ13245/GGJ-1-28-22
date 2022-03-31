@@ -11,6 +11,7 @@ public class Object : MonoBehaviour
     // 0 - static
     // 1 - box
     // 2 - pressure plate
+    // 3 - levers
 
     public int itemID;
     public ItemState currentState;
@@ -29,6 +30,7 @@ public class Object : MonoBehaviour
             case 0: break;
             case 1: BoxUpdate(); break;
             case 2: PressurePlateUpdate(); break;
+            case 3: LeverUpdate(); break;
         }
 
     }
@@ -39,13 +41,6 @@ public class Object : MonoBehaviour
         if (c.gameObject.name.Contains("PlayerOne")) { touchingPlayerOne = true;  }
         if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayerTwo = true;  }
         if (c.gameObject.name.Contains("Box")) { touchingBox = true; }
-        Debug.Log(gameObject.name + " touched by: " + c.gameObject.name);
-    }
-
-    void OnTriggerEnter2D(Collider2D c)
-    {
-        Debug.Log(gameObject.name + " entered by: " + c.gameObject.name);
-
     }
 
     void OnTriggerExit2D(Collider2D c) {
@@ -59,7 +54,6 @@ public class Object : MonoBehaviour
     void BoxUpdate() {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("e");
             if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
             else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
         }
@@ -99,6 +93,14 @@ public class Object : MonoBehaviour
         }
     }
 
+    void LeverUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && (touchingPlayerOne || touchingPlayerTwo))
+        {
+            if (!powered) { powered = true; }
+            else { powered = false; }
+        }
+    }
     void Hide()
     {
         GetComponent<SpriteRenderer>().enabled = false;
