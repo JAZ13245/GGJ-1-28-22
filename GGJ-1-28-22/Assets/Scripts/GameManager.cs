@@ -30,8 +30,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         spawnOut = generator.GetComponent<LevelGenerator>().spawnOut;
-        playerOne = generator.GetComponent<LevelGenerator>().playerOnePrefab;
-        playerTwo = generator.GetComponent<LevelGenerator>().playerTwoPrefab;
+        //playerOne = generator.GetComponent<LevelGenerator>().playerOnePrefab;
+        //playerOne = GameObject.FindWithTag("PlayerOne");
+        //playerTwo = GameObject.FindWithTag("PlayerTwo");
+        //playerTwo = generator.GetComponent<LevelGenerator>().playerOnePrefab;
+        //playerTwo = generator.GetComponent<LevelGenerator>().playerTwoPrefab;
 
         //playerOnePrefab = transform.Find("PlayerOne(Clone)").gameObject;
         //playerTwoPrefab = transform.Find("PlayerTwo(Clone)").gameObject;
@@ -43,9 +46,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
-        
-        for(int i = 0; i < spawnOut.Length; i++)
+        playerOne = GameObject.FindWithTag("PlayerOne");
+        playerTwo = GameObject.FindWithTag("PlayerTwo");
+        for (int i = 0; i < spawnOut.Length; i++)
         {
             if(spawnOut[i] != null)
             {

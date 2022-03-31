@@ -450,6 +450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07ebe0b48de425448013d45517542cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 1
+  touchingPlayerOne: 0
+  touchingPlayerTwo: 0
   gameManager: {fileID: 88960999}
   grabCollider: {fileID: 402435537}
 --- !u!1001 &630348836
@@ -535,6 +538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07ebe0b48de425448013d45517542cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 1
+  touchingPlayerOne: 0
+  touchingPlayerTwo: 0
   gameManager: {fileID: 88960999}
   grabCollider: {fileID: 1178031083}
 --- !u!61 &1178031083 stripped
