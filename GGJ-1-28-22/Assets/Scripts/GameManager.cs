@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject loader;
     public GameObject generator;
 
-    private GameObject[] spawnOut;
+    private GameObject[] spawnList;
     public GameObject playerOne;
     public GameObject playerTwo;
 
@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-
-        spawnOut = generator.GetComponent<LevelGenerator>().spawnOut;
         //playerOne = generator.GetComponent<LevelGenerator>().playerOnePrefab;
         //playerOne = GameObject.FindWithTag("PlayerOne");
         //playerTwo = GameObject.FindWithTag("PlayerTwo");
@@ -46,19 +44,22 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        spawnList = GameObject.FindGameObjectsWithTag("SpawnOut");
         playerOne = GameObject.FindWithTag("PlayerOne");
         playerTwo = GameObject.FindWithTag("PlayerTwo");
-        for (int i = 0; i < spawnOut.Length; i++)
+        //Debug.Log(spawnList[1].transform.position.x);
+        for (int i = 0; i < spawnList.Length; i++)
         {
-            if(spawnOut[i] != null)
+            if(spawnList[i] != null)
             {
-                //Debug.Log(spawnOut[i].GetComponent<SpawnBlock>().playerTwoOnPoint);
-                if (spawnOut[i].GetComponent<SpawnBlock>().playerOneOnPoint)
+                //Debug.Log(i);
+                //Debug.Log(spawnList[i].GetComponent<SpawnBlock>().playerTwoOnPoint);
+                if (spawnList[i].GetComponent<SpawnBlock>().playerOneOnPoint)
                 {
                     Debug.Log("Player on point");
                     playerOneOnPoint = true;
                 }
-                else if (spawnOut[i].GetComponent<SpawnBlock>().playerTwoOnPoint)
+                else if (spawnList[i].GetComponent<SpawnBlock>().playerTwoOnPoint)
                 {
                     Debug.Log("Player two on point");
                     playerTwoOnPoint = true;
