@@ -481,7 +481,8 @@ MonoBehaviour:
   powerSource: {fileID: 0}
   ogTime: 0
   pastVersion: {fileID: 0}
-  futureVersion: {fileID: 0}
+  futureVersion: {fileID: 1178031078}
+  prevLoc: {x: 0, y: 0, z: 0}
   gameManager: {fileID: 88960999}
   grabCollider: {fileID: 402435537}
 --- !u!1001 &630348836
@@ -575,9 +576,10 @@ MonoBehaviour:
   open: 0
   powered: 0
   powerSource: {fileID: 0}
-  ogTime: 0
-  pastVersion: {fileID: 0}
+  ogTime: 1
+  pastVersion: {fileID: 402435536}
   futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
   gameManager: {fileID: 88960999}
   grabCollider: {fileID: 1178031083}
 --- !u!61 &1178031083 stripped

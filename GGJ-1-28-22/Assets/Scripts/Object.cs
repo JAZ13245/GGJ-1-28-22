@@ -5,12 +5,8 @@ using UnityEngine;
 public enum ItemState {
     OnGround, HeldByPlayerOne, HeldByPlayerTwo
 }
-public enum TimeState
-{
+public enum TimeState { Past,Future }
 
-}
-
-public enum OriginalTime { Past,Future }
 public class Object : MonoBehaviour
 {
     // ids
@@ -27,10 +23,11 @@ public class Object : MonoBehaviour
 
     public GameObject powerSource;
 
-    public OriginalTime ogTime;
+    public TimeState originalTimeState;
+    public TimeState currentTimeState;
     public GameObject pastVersion;
     public GameObject futureVersion;
-    private Vector3 prevLoc;
+    public Vector3 prevLoc;
 
 
     public GameManager gameManager;
@@ -38,9 +35,10 @@ public class Object : MonoBehaviour
 
     void Start() {
         prevLoc = transform.position;
+        currentTimeState = originalTimeState;
     }
     void Update() {
-        TimeUpdate();
+        
         switch (itemID)
         {
             case 0: break;
@@ -49,6 +47,7 @@ public class Object : MonoBehaviour
             case 3: LeverUpdate(); break;
             case 4: DoorUpdate(); break;
         }
+        TimeUpdate();
         prevLoc = transform.position;
     }
 
@@ -68,30 +67,37 @@ public class Object : MonoBehaviour
 
     }
 
+    // current time rules implemented:
+    // past effects future
+    // future doesn't effect past
     void TimeUpdate()
     {
-        if(ogTime == OriginalTime.Past)
+        if(futureVersion != null || pastVersion != null)
         {
-            // if the past versin has moved
-            if(transform.position != prevLoc)
+            if (originalTimeState == TimeState.Past)
             {
-                // update the future version to match the new past version position
-                futureVersion.GetComponent<Object>().PastUpdated();
+                // if the past versin has moved
+                if (transform.position != prevLoc)
+                {
+                    Debug.Log("changed");
+                    // update the future version to match the new past version position
+                    futureVersion.GetComponent<Object>().PastUpdated();
+                }
             }
-        }
-        else if (ogTime == OriginalTime.Future)
-        {
-            
+            else if (originalTimeState == TimeState.Future)
+            {
+
+            }
         }
     }
 
     void PastUpdated()
     {
-        if (ogTime == OriginalTime.Past)
+        if (originalTimeState == TimeState.Past)
         {
 
         }
-        else if (ogTime == OriginalTime.Future) 
+        else if (originalTimeState == TimeState.Future) 
         {
             // if the past version is moved, update the future version to have the new position
             transform.position = pastVersion.transform.position;
