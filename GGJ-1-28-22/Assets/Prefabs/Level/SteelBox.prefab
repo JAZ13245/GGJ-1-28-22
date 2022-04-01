@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8342071013081933373}
   - component: {fileID: 8342071013081933372}
   - component: {fileID: 8342071013081933375}
-  - component: {fileID: -7094091704396626333}
   - component: {fileID: 3216689770293935756}
+  - component: {fileID: 672670292}
   m_Layer: 6
   m_Name: SteelBox
   m_TagString: Untagged
@@ -138,31 +138,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.38}
   m_EdgeRadius: 0
---- !u!114 &-7094091704396626333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8342071013081933363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07ebe0b48de425448013d45517542cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 1
-  currentState: 0
-  touchingPlayerOne: 0
-  touchingPlayerTwo: 0
-  touchingBox: 0
-  open: 0
-  powered: 0
-  powerSource: {fileID: 0}
-  ogTime: 0
-  pastVersion: {fileID: 0}
-  futureVersion: {fileID: 0}
-  gameManager: {fileID: 0}
-  grabCollider: {fileID: 0}
 --- !u!114 &3216689770293935756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +158,31 @@ MonoBehaviour:
   open: 0
   powered: 0
   powerSource: {fileID: 0}
-  ogTime: 0
+  originalTimeState: 0
+  currentTimeState: 0
   pastVersion: {fileID: 0}
   futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
   gameManager: {fileID: 0}
   grabCollider: {fileID: 0}
+--- !u!50 &672670292
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342071013081933363}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

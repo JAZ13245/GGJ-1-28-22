@@ -367,6 +367,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1949972781, guid: c92cbe3f5eaeb154eafaca7bc6b9ba3c, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1927196910}
     - target: {fileID: 5570411345105929416, guid: c92cbe3f5eaeb154eafaca7bc6b9ba3c, type: 3}
       propertyPath: m_Name
       value: DarkBox
@@ -486,6 +490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3216689770293935756, guid: 9646a1b7cad2ee14183d8601c57e5a3f, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1927196910}
     - target: {fileID: 8342071013081933363, guid: 9646a1b7cad2ee14183d8601c57e5a3f, type: 3}
       propertyPath: m_Name
       value: SteelBox
@@ -779,36 +787,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8502e3f0fed5e72439a0ce1525bf5803, type: 3}
---- !u!1 &1949972775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5570411345105929416, guid: c92cbe3f5eaeb154eafaca7bc6b9ba3c, type: 3}
-  m_PrefabInstance: {fileID: 491071704}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1949972781
+--- !u!114 &1927196910 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4446107012303465655, guid: cb8d6c2bb66738343ae6c54c1c51cbb7, type: 3}
+  m_PrefabInstance: {fileID: 117994709}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949972775}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07ebe0b48de425448013d45517542cf, type: 3}
+  m_Script: {fileID: 11500000, guid: b190fbc7447b68144a9233033121b0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 1
-  currentState: 0
-  touchingPlayerOne: 0
-  touchingPlayerTwo: 0
-  touchingBox: 0
-  open: 0
-  powered: 0
-  powerSource: {fileID: 0}
-  ogTime: 0
-  pastVersion: {fileID: 0}
-  futureVersion: {fileID: 0}
-  gameManager: {fileID: 0}
-  grabCollider: {fileID: 0}
 --- !u!1001 &1969746020
 PrefabInstance:
   m_ObjectHideFlags: 0
