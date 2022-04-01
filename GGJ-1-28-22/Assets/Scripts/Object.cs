@@ -5,6 +5,12 @@ using UnityEngine;
 public enum ItemState {
     OnGround, HeldByPlayerOne, HeldByPlayerTwo
 }
+public enum TimeState
+{
+
+}
+
+public enum OriginalTime { Past,Future }
 public class Object : MonoBehaviour
 {
     // ids
@@ -21,13 +27,20 @@ public class Object : MonoBehaviour
 
     public GameObject powerSource;
 
+    public OriginalTime ogTime;
+    public GameObject pastVersion;
+    public GameObject futureVersion;
+    private Vector3 prevLoc;
+
+
     public GameManager gameManager;
     public BoxCollider2D grabCollider;
 
     void Start() {
-
+        prevLoc = transform.position;
     }
     void Update() {
+        TimeUpdate();
         switch (itemID)
         {
             case 0: break;
@@ -36,7 +49,7 @@ public class Object : MonoBehaviour
             case 3: LeverUpdate(); break;
             case 4: DoorUpdate(); break;
         }
-
+        prevLoc = transform.position;
     }
 
     void OnTriggerStay2D(Collider2D c)
@@ -53,6 +66,36 @@ public class Object : MonoBehaviour
         if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayerTwo = false; }
         if (c.gameObject.name.Contains("Box")) { touchingBox = false; }
 
+    }
+
+    void TimeUpdate()
+    {
+        if(ogTime == OriginalTime.Past)
+        {
+            // if the past versin has moved
+            if(transform.position != prevLoc)
+            {
+                // update the future version to match the new past version position
+                futureVersion.GetComponent<Object>().PastUpdated();
+            }
+        }
+        else if (ogTime == OriginalTime.Future)
+        {
+            
+        }
+    }
+
+    void PastUpdated()
+    {
+        if (ogTime == OriginalTime.Past)
+        {
+
+        }
+        else if (ogTime == OriginalTime.Future) 
+        {
+            // if the past version is moved, update the future version to have the new position
+            transform.position = pastVersion.transform.position;
+        }
     }
 
     void BoxUpdate() {
@@ -99,10 +142,12 @@ public class Object : MonoBehaviour
 
     void LeverUpdate()
     {
+ 
         if (Input.GetKeyDown(KeyCode.E) && (touchingPlayerOne || touchingPlayerTwo))
         {
             if (!powered) { powered = true; }
             else { powered = false; }
+            transform.Rotate(new Vector3(0,0,180));
         }
     }
 
