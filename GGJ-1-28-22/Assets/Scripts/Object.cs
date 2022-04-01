@@ -105,8 +105,13 @@ public class Object : MonoBehaviour
     }
 
     void BoxUpdate() {
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (currentTimeState == TimeState.Future) // player two is future
+            {
+                if (touchingPlayerTwo) { }
+            }
             if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
             else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
         }
