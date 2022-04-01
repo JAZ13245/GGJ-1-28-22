@@ -105,15 +105,13 @@ public class Object : MonoBehaviour
     }
 
     void BoxUpdate() {
-        
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && currentTimeState == TimeState.Future) // player one is future
         {
-            if (currentTimeState == TimeState.Future) // player two is future
-            {
-                if (touchingPlayerTwo) { }
-            }
-            if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
-            else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
+            if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerTwo; }
+        }
+        if (Input.GetKeyDown(KeyCode.RightControl) && currentTimeState == TimeState.Past) // player two is past
+        {
+            if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerOne; }
         }
         if (Input.GetKey(KeyCode.Q))
         {
@@ -164,16 +162,19 @@ public class Object : MonoBehaviour
 
     void DoorUpdate()
     {
-        if (powerSource.GetComponent<Object>().powered)
+        if (powerSource != null)
         {
-            open = true;
-            Hide();
-        }
-        else
-        {
-            open = false;
-            Show();
-        }
+            if (powerSource.GetComponent<Object>().powered)
+            {
+                open = true;
+                Hide();
+            }
+            else
+            {
+                open = false;
+                Show();
+            }
+        }  
     }
 
     void Hide()
