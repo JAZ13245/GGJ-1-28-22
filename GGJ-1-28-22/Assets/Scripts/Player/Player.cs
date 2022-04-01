@@ -36,49 +36,12 @@ public class Player : MonoBehaviour
         }
 
         pos = transform.position;
-        //Debug.Log(pos);
-        //Debug.Log("Tet");
 
     }
 
     public void OnMove(InputAction.CallbackContext ctx) 
     {
         movementInput = ctx.ReadValue<Vector2>();
-    }
-
-    public void OnCarry(InputAction.CallbackContext ctx)
-    {
-        if (nearBox)
-        {
-            Debug.Log("Carrying");
-        }
-    }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "SpawnOut")
-        {
-            //Debug.Log("test");
-        }
-
-       // Debug.Log("Test");
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        nearBox = true;
-
-        if(collision.gameObject.CompareTag("SpawnOut"))
-        {
-            //Debug.Log("Spawn");
-        }
-        //Debug.Log("Near");
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        nearBox = false;
-        //Debug.Log("Far");
     }
 
 }
