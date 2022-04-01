@@ -44,34 +44,39 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // Gets all of the spawn out objects and puts them into an aray
         spawnList = GameObject.FindGameObjectsWithTag("SpawnOut");
+
         playerOne = GameObject.FindWithTag("PlayerOne");
         playerTwo = GameObject.FindWithTag("PlayerTwo");
-        //Debug.Log(spawnList[1].transform.position.x);
+
+        // Loops through all the spawn out blocks and checks
+        // which player is on the block
         for (int i = 0; i < spawnList.Length; i++)
         {
-            if(spawnList[i] != null)
+            if (spawnList[i].GetComponent<SpawnBlock>().playerOneOnPoint)
             {
-                //Debug.Log(i);
-                //Debug.Log(spawnList[i].GetComponent<SpawnBlock>().playerTwoOnPoint);
-                if (spawnList[i].GetComponent<SpawnBlock>().playerOneOnPoint)
-                {
-                    Debug.Log("Player on point");
-                    playerOneOnPoint = true;
-                }
-                else if (spawnList[i].GetComponent<SpawnBlock>().playerTwoOnPoint)
-                {
-                    Debug.Log("Player two on point");
-                    playerTwoOnPoint = true;
-                }
+                playerOneOnPoint = true;
             }
-        }
+            else if (spawnList[i].GetComponent<SpawnBlock>().playerTwoOnPoint)
+            {
+                playerTwoOnPoint = true;
+            }
 
-        if(playerOneOnPoint && playerTwoOnPoint)
-        {
-            Debug.Log("Success");
-        }
-        
+            // Loads a new scene if both players are on one of the blocks
+
+            if (playerOneOnPoint && playerTwoOnPoint)
+            {
+                loader.GetComponent<LevelLoader>().LoadNextLevel();
+            }
+            // If the end of the list is reached and both players aren't on spawn blocks
+            // then the bools are set back to false
+            else if(i == spawnList.Length - 1)
+            {
+                playerOneOnPoint = false;
+                playerTwoOnPoint = false;
+            }
+        }       
 
 
         /*if(Mathf.Abs(playerOnePrefab.GetComponent<Player>().position.x) > 300 
