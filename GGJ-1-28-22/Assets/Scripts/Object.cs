@@ -107,28 +107,25 @@ public class Object : MonoBehaviour
     void BoxUpdate() {
         if (Input.GetKeyDown(KeyCode.LeftControl) && currentTimeState == TimeState.Future) // player one is future
         {
-            if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerTwo; }
-        }
-        if (Input.GetKeyDown(KeyCode.RightControl) && currentTimeState == TimeState.Past) // player two is past
-        {
-            if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerOne; }
-        }
-        if (Input.GetKey(KeyCode.Q))
-        {
-            if (currentState == ItemState.HeldByPlayerOne) 
+            if (currentState == ItemState.HeldByPlayerOne)
             {
                 currentState = ItemState.OnGround;
                 Vector3 playerOnePos = gameManager.playerOne.gameObject.transform.position;
                 GetComponent<Transform>().position = new Vector3(playerOnePos.x, playerOnePos.y - 0.55f, playerOnePos.z);
                 Show();
             }
+            else if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
+        }
+        if (Input.GetKeyDown(KeyCode.RightControl) && currentTimeState == TimeState.Past) // player two is past
+        {
             if (currentState == ItemState.HeldByPlayerTwo)
             {
                 currentState = ItemState.OnGround;
                 Vector3 playerTwoPos = gameManager.playerTwo.gameObject.transform.position;
-                GetComponent<Transform>().position = new Vector3(playerTwoPos.x, playerTwoPos.y-0.55f, playerTwoPos.z);
+                GetComponent<Transform>().position = new Vector3(playerTwoPos.x, playerTwoPos.y - 0.55f, playerTwoPos.z);
                 Show();
             }
+            else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
         }
         
         if(currentState == ItemState.HeldByPlayerOne || currentState == ItemState.HeldByPlayerTwo)
@@ -151,12 +148,23 @@ public class Object : MonoBehaviour
 
     void LeverUpdate()
     {
- 
-        if (Input.GetKeyDown(KeyCode.E) && (touchingPlayerOne || touchingPlayerTwo))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && currentTimeState == TimeState.Future) // player one is future
         {
-            if (!powered) { powered = true; }
-            else { powered = false; }
-            transform.Rotate(new Vector3(0,0,180));
+            if (touchingPlayerOne)
+            {
+                if (!powered) { powered = true; }
+                else { powered = false; }
+                transform.Rotate(new Vector3(0, 0, 180));
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.RightControl) && currentTimeState == TimeState.Past) // player two is past
+        {
+            if (touchingPlayerTwo)
+            {
+                if (!powered) { powered = true; }
+                else { powered = false; }
+                transform.Rotate(new Vector3(0, 0, 180));
+            }
         }
     }
 
