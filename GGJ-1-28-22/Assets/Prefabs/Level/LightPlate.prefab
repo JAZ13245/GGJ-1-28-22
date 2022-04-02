@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1020671793457237596}
   - component: {fileID: 1020671793457237594}
   - component: {fileID: 4856063524465448802}
+  - component: {fileID: 4359714087002987604}
   m_Layer: 6
   m_Name: LightPlate
   m_TagString: Untagged
@@ -149,8 +150,23 @@ MonoBehaviour:
   open: 0
   powered: 0
   powerSource: {fileID: 0}
-  ogTime: 0
-  pastVersion: {fileID: 0}
-  futureVersion: {fileID: 0}
   gameManager: {fileID: 0}
   grabCollider: {fileID: 0}
+--- !u!114 &4359714087002987604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020671793457237593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8dc78832bc900458cabcb5d6712b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originTimeState: 1
+  currentTimeState: 1
+  pastVersion: {fileID: 0}
+  futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 3

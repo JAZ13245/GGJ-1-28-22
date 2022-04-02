@@ -37,11 +37,11 @@ public class TimeState : MonoBehaviour
         {
             case TimePeriod.Past:
                 GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-                transform.position = new Vector3(transform.position.x, transform.position.y, layerPriority);
+                transform.position = new Vector3(transform.position.x, transform.position.y, 50 - layerPriority);
                 break;
             case TimePeriod.Future:
                 GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-                transform.position = new Vector3(transform.position.x, transform.position.y, -50 + layerPriority);
+                transform.position = new Vector3(transform.position.x, transform.position.y, -layerPriority);
                 break;
         }
     }

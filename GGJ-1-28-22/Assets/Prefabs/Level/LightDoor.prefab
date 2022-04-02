@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2876021702622388486}
   - component: {fileID: 7685319211899905473}
   - component: {fileID: 7685319211899905474}
+  - component: {fileID: 2110484807}
   m_Layer: 6
   m_Name: LightDoor
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2876021702622388485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.8, z: -9}
-  m_LocalScale: {x: 3.65, y: 2, z: 1}
+  m_LocalScale: {x: 7.5, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -200,3 +201,21 @@ MonoBehaviour:
   powerSource: {fileID: 0}
   gameManager: {fileID: 0}
   grabCollider: {fileID: 2876021702622388486}
+--- !u!114 &2110484807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2876021702622388485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8dc78832bc900458cabcb5d6712b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originTimeState: 1
+  currentTimeState: 1
+  pastVersion: {fileID: 0}
+  futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 50

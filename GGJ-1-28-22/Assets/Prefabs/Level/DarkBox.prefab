@@ -177,11 +177,6 @@ MonoBehaviour:
   open: 0
   powered: 0
   powerSource: {fileID: 0}
-  originalTimeState: 0
-  currentTimeState: 0
-  pastVersion: {fileID: 0}
-  futureVersion: {fileID: 0}
-  prevLoc: {x: 0, y: 0, z: 0}
   gameManager: {fileID: 0}
   grabCollider: {fileID: 0}
 --- !u!50 &1949972782

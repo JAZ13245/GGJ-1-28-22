@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8342071013081933375}
   - component: {fileID: 3216689770293935756}
   - component: {fileID: 672670292}
+  - component: {fileID: 8318430371520464067}
   m_Layer: 6
   m_Name: SteelBox
   m_TagString: Untagged
@@ -158,11 +159,6 @@ MonoBehaviour:
   open: 0
   powered: 0
   powerSource: {fileID: 0}
-  originalTimeState: 0
-  currentTimeState: 0
-  pastVersion: {fileID: 0}
-  futureVersion: {fileID: 0}
-  prevLoc: {x: 0, y: 0, z: 0}
   gameManager: {fileID: 0}
   grabCollider: {fileID: 0}
 --- !u!50 &672670292
@@ -186,3 +182,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8318430371520464067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8342071013081933363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8dc78832bc900458cabcb5d6712b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originTimeState: 1
+  currentTimeState: 1
+  pastVersion: {fileID: 0}
+  futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 3

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 170305882691967934}
   - component: {fileID: 170305882691967933}
   - component: {fileID: 170305882691967932}
+  - component: {fileID: 128812728}
   m_Layer: 0
   m_Name: DarkLever
   m_TagString: Untagged
@@ -171,8 +172,23 @@ MonoBehaviour:
   open: 0
   powered: 0
   powerSource: {fileID: 0}
-  ogTime: 0
-  pastVersion: {fileID: 0}
-  futureVersion: {fileID: 0}
   gameManager: {fileID: 0}
   grabCollider: {fileID: 170305882691967934}
+--- !u!114 &128812728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170305882691967923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8dc78832bc900458cabcb5d6712b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originTimeState: 0
+  currentTimeState: 0
+  pastVersion: {fileID: 0}
+  futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 3
