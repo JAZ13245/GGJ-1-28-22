@@ -229,6 +229,7 @@ MonoBehaviour:
   pastVersion: {fileID: 0}
   futureVersion: {fileID: 0}
   prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 0
 --- !u!114 &219412356 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7585523509175954619, guid: f874499b4f01cda498bb511203695294, type: 3}
@@ -387,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400501568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -481,6 +482,7 @@ MonoBehaviour:
   pastVersion: {fileID: 0}
   futureVersion: {fileID: 0}
   prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 0
 --- !u!1 &1621857357 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7585523509175954618, guid: f874499b4f01cda498bb511203695294, type: 3}
@@ -789,6 +791,7 @@ MonoBehaviour:
   pastVersion: {fileID: 0}
   futureVersion: {fileID: 0}
   prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 0
 --- !u!1001 &170305882787028228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -868,6 +871,7 @@ MonoBehaviour:
   pastVersion: {fileID: 0}
   futureVersion: {fileID: 0}
   prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 0
 --- !u!1001 &3361217629740119892
 PrefabInstance:
   m_ObjectHideFlags: 0
