@@ -5,7 +5,7 @@ using UnityEngine;
 public enum ItemState {
     OnGround, HeldByPlayerOne, HeldByPlayerTwo
 }
-public enum TimeState { Past,Future }
+
 
 public class Object : MonoBehaviour
 {
@@ -23,19 +23,14 @@ public class Object : MonoBehaviour
 
     public GameObject powerSource;
 
-    public TimeState originalTimeState;
-    public TimeState currentTimeState;
-    public GameObject pastVersion;
-    public GameObject futureVersion;
-    public Vector3 prevLoc;
+   
 
 
     public GameManager gameManager;
     public BoxCollider2D grabCollider;
 
     void Start() {
-        prevLoc = transform.position;
-        currentTimeState = originalTimeState;
+        
     }
     void Update() {
         
@@ -47,8 +42,7 @@ public class Object : MonoBehaviour
             case 3: LeverUpdate(); break;
             case 4: DoorUpdate(); break;
         }
-        TimeUpdate();
-        prevLoc = transform.position;
+        
     }
 
     void OnTriggerStay2D(Collider2D c)
@@ -67,45 +61,12 @@ public class Object : MonoBehaviour
 
     }
 
-    // current time rules implemented:
-    // past effects future
-    // future doesn't effect past
-    void TimeUpdate()
-    {
-        if(futureVersion != null || pastVersion != null)
-        {
-            if (originalTimeState == TimeState.Past)
-            {
-                // if the past versin has moved
-                if (transform.position != prevLoc)
-                {
-                    Debug.Log("changed");
-                    // update the future version to match the new past version position
-                    futureVersion.GetComponent<Object>().PastUpdated();
-                }
-            }
-            else if (originalTimeState == TimeState.Future)
-            {
+    
 
-            }
-        }
-    }
-
-    void PastUpdated()
-    {
-        if (originalTimeState == TimeState.Past)
-        {
-
-        }
-        else if (originalTimeState == TimeState.Future) 
-        {
-            // if the past version is moved, update the future version to have the new position
-            transform.position = pastVersion.transform.position;
-        }
-    }
+    
 
     void BoxUpdate() {
-        if (Input.GetKeyDown(KeyCode.LeftControl) && currentTimeState == TimeState.Future) // player one is future
+        if (Input.GetKeyDown(KeyCode.LeftControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
         {
             if (currentState == ItemState.HeldByPlayerOne)
             {
@@ -116,7 +77,7 @@ public class Object : MonoBehaviour
             }
             else if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
         }
-        if (Input.GetKeyDown(KeyCode.RightControl) && currentTimeState == TimeState.Past) // player two is past
+        if (Input.GetKeyDown(KeyCode.RightControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
         {
             if (currentState == ItemState.HeldByPlayerTwo)
             {
@@ -148,7 +109,7 @@ public class Object : MonoBehaviour
 
     void LeverUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl) && currentTimeState == TimeState.Future) // player one is future
+        if (Input.GetKeyDown(KeyCode.LeftControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
         {
             if (touchingPlayerOne)
             {
@@ -157,7 +118,7 @@ public class Object : MonoBehaviour
                 transform.Rotate(new Vector3(0, 0, 180));
             }
         }
-        if (Input.GetKeyDown(KeyCode.RightControl) && currentTimeState == TimeState.Past) // player two is past
+        if (Input.GetKeyDown(KeyCode.RightControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
         {
             if (touchingPlayerTwo)
             {
