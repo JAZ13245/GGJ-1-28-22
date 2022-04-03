@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2133342504956453594}
   - component: {fileID: 2133342504956453669}
   - component: {fileID: 2133342504956453592}
+  - component: {fileID: -2629785439467391528}
   m_Layer: 0
   m_Name: PastWall
   m_TagString: Untagged
@@ -128,3 +129,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &-2629785439467391528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133342504956453668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8dc78832bc900458cabcb5d6712b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originTimeState: 0
+  currentTimeState: 0
+  pastVersion: {fileID: 0}
+  futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 2

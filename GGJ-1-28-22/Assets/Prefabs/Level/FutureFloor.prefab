@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4054418003136956649}
   - component: {fileID: 579293151592947386}
   - component: {fileID: -2096373643050514047}
+  - component: {fileID: -9120892927754279622}
   m_Layer: 0
   m_Name: FutureFloor
   m_TagString: Untagged
@@ -101,3 +102,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!114 &-9120892927754279622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582974589007478722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8dc78832bc900458cabcb5d6712b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originTimeState: 1
+  currentTimeState: 1
+  pastVersion: {fileID: 0}
+  futureVersion: {fileID: 0}
+  prevLoc: {x: 0, y: 0, z: 0}
+  layerPriority: 1

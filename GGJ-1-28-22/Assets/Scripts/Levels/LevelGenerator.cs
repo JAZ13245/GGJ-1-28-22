@@ -68,13 +68,15 @@ public class LevelGenerator : MonoBehaviour
                 {
                     if (colorMapping.prefab.name == "PlayerOne")
                     {
-                        playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
                         playerOnePrefab.transform.position = playerPosition;
+
+                        playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
                     }
                     else if (colorMapping.prefab.name == "PlayerTwo")
                     {
-                        playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
                         playerTwoPrefab.transform.position = playerPosition;
+
+                        playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
                     }
                 }
             }
