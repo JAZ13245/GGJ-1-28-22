@@ -348,7 +348,7 @@ MonoBehaviour:
   pastVersion: {fileID: 0}
   futureVersion: {fileID: 0}
   prevLoc: {x: 0, y: 0, z: 0}
-  layerPriority: 3
+  layerPriority: 4
 --- !u!1001 &630348836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,6 +422,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1927196910}
+    - target: {fileID: 8318430371520464067, guid: 9646a1b7cad2ee14183d8601c57e5a3f, type: 3}
+      propertyPath: layerPriority
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8342071013081933363, guid: 9646a1b7cad2ee14183d8601c57e5a3f, type: 3}
       propertyPath: m_Name
       value: SteelBox
