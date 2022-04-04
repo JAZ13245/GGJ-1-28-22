@@ -62,7 +62,7 @@ public class Object : MonoBehaviour
     }
 
     
-
+    
     
 
     void BoxUpdate() {
@@ -73,6 +73,7 @@ public class Object : MonoBehaviour
                 currentState = ItemState.OnGround;
                 Vector3 playerOnePos = gameManager.playerOne.gameObject.transform.position;
                 GetComponent<Transform>().position = new Vector3(playerOnePos.x, playerOnePos.y - 0.55f, playerOnePos.z);
+                gameManager.playerOne.GetComponent<Player>().isCarrying = false;
                 Show();
             }
             else if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
@@ -83,13 +84,19 @@ public class Object : MonoBehaviour
             {
                 currentState = ItemState.OnGround;
                 Vector3 playerTwoPos = gameManager.playerTwo.gameObject.transform.position;
+                //gameManager.playerTwo.GetComponent<Player>().isCarrying = true;
                 GetComponent<Transform>().position = new Vector3(playerTwoPos.x, playerTwoPos.y - 0.55f, playerTwoPos.z);
                 Show();
             }
             else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
         }
         
-        if(currentState == ItemState.HeldByPlayerOne || currentState == ItemState.HeldByPlayerTwo)
+        if(currentState == ItemState.HeldByPlayerOne)
+        {
+            gameManager.playerOne.GetComponent<Player>().isCarrying = true;
+            Hide();
+        }
+        else if(currentState == ItemState.HeldByPlayerTwo)
         {
             Hide();
         }
