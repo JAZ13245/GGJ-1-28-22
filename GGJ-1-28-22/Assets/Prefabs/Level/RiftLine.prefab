@@ -183,7 +183,7 @@ MonoBehaviour:
   RiftMask: {fileID: 5734609042677550145}
   lg: {fileID: 0}
   angle: 0
-  lineStyle: 1
+  lineStyle: 4
   lineCollision: {fileID: 5734609044647149425}
   lineParticles: {fileID: 0}
   playerOneQuadrant: 0
@@ -412,5 +412,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12, y: 0.05}
+  m_Size: {x: 12, y: 0.12}
   m_EdgeRadius: 0

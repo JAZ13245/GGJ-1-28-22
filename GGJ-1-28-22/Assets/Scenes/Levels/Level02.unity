@@ -256,14 +256,13 @@ PrefabInstance:
       objectReference: {fileID: 219412356}
     - target: {fileID: 5734609042830255499, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
       propertyPath: lineStyle
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5734609042830255499, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
       propertyPath: lineParticles
       value: 
       objectReference: {fileID: 630348837}
-    m_RemovedComponents:
-    - {fileID: 5734609044647149424, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
 --- !u!1001 &491071704
 PrefabInstance:

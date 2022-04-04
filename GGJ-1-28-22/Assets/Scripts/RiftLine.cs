@@ -8,6 +8,7 @@ public class RiftLine : MonoBehaviour
     public GameObject RiftMask;
     public LevelGenerator lg;
     public float angle;
+    public float targetAngle;
     public int lineStyle;
 
     public BoxCollider2D lineCollision;
@@ -28,7 +29,8 @@ public class RiftLine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        angle = 270;
+        angle = -21420420;
+
         leftHeld = false;
         rightHeld = false;
 
@@ -45,12 +47,24 @@ public class RiftLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerOnePos = lg.playerOne.transform.position;
+        playerTwoPos = lg.playerTwo.transform.position;
 
+        if (angle == -21420420)
+        {
+            if(playerOnePos != Vector3.zero || playerTwoPos != Vector3.zero)
+            {
+                angle = Mathf.Atan2(playerOnePos.y - playerTwoPos.y, playerOnePos.x - playerTwoPos.x) * Mathf.Rad2Deg + 270;
+                SetAngle();
+
+                targetAngle = angle;
+            }
+            return;
+        }
         Vector3 startPoint = theLine.GetPosition(0);
         Vector3 endPoint= theLine.GetPosition(1);
 
-        playerOnePos = lg.playerOne.transform.position;
-        playerTwoPos = lg.playerTwo.transform.position;
+        
 
         playerOneQuadrant = GetQuadrant(playerOnePos);
         playerTwoQuadrant = GetQuadrant(playerTwoPos);
@@ -68,13 +82,77 @@ public class RiftLine : MonoBehaviour
             angle += 5;
             SetAngle();
         }
+        else if (lineStyle == 4)
+        {
+            const float alpha = 0.01f; // for line angle transition
+            const float beta = 2; // for line snapping
+
+            var angle2 = Mathf.Atan2(playerOnePos.y - playerTwoPos.y, playerOnePos.x - playerTwoPos.x)*Mathf.Rad2Deg + 270;
+            angle2 = Mathf.Round(angle2 / 90 * beta) * 90 / beta;
+            while (angle2 < 0) { angle2 += 360; }
+            while (angle2 > 360) { angle2 -= 360; }
+            
+            if(Mathf.Abs(angle2-angle) > Mathf.Abs(angle2+360 - angle))
+            {
+                angle -= 360;
+                //SetAngle();
+            }
+            else if(Mathf.Abs(angle2-angle) > Mathf.Abs(angle2-360 - angle))
+            {
+                angle += 360;
+                //SetAngle();
+            }
+            
+            angle = angle2 * alpha + (1-alpha)*angle;
+            //if (angle > 360) { angle-=360}
+            //ShiftAngle(angle2);
+            SetAngle();
+        }
+        else if(lineStyle == 5)
+        {
+            const float alpha = 0.01f; // for line angle transition
+            const float beta = 2; // for line snapping
+            const float close = 1;
+            
+            var angle2 = Mathf.Atan2(playerOnePos.y - playerTwoPos.y, playerOnePos.x - playerTwoPos.x) * Mathf.Rad2Deg + 270;
+            angle2 = Mathf.Round(angle2 / 90 * beta) * 90 / beta;
+            while (angle2 < 0) { angle2 += 360; }
+            while (angle2 > 360) { angle2 -= 360; }
+
+            if (Mathf.Abs(angle2 - angle) > Mathf.Abs(angle2 + 360 - angle))
+            {
+                angle -= 360;
+                //SetAngle();
+            }
+            else if (Mathf.Abs(angle2 - angle) > Mathf.Abs(angle2 - 360 - angle))
+            {
+                angle += 360;
+                //SetAngle();
+            }
+            
+            if (Mathf.Sqrt(Mathf.Pow(playerOnePos.y - playerTwoPos.y, 2)
+                + Mathf.Pow(playerOnePos.x - playerTwoPos.x, 2)) < close)
+            {
+                angle2 = targetAngle;
+            }
+            else
+            {
+                targetAngle = angle2;
+            }
+            angle = angle2 * alpha + (1 - alpha) * angle;
+            //if (angle > 360) { angle-=360}
+            //ShiftAngle(angle2);
+            SetAngle();
+        }
         else
         {
             SetAngle();
         }
 
-        if (angle < 0){ angle += 360; }
-        if (angle >= 360 || angle <= -360) { angle = 0; }
+        //while (angle < 0){ angle += 360; }
+        //while (angle > 360){ angle -= 360; }
+
+        //if (angle >= 360 || angle <= -360) { angle = 0; }
     }
 
 
@@ -107,7 +185,7 @@ public class RiftLine : MonoBehaviour
 
     // Adds feathering to the angle changing
     // Instead of instantly going to the angle desired, transition to it overtime
-    private void ShiftAngle(int desiredAngle) {
+    private void ShiftAngle(float desiredAngle) {
         if (desiredAngle != angle) {
             if(desiredAngle == 0) {
                 if(angle > 180) { angle += 5; }
