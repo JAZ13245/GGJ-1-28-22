@@ -84,8 +84,8 @@ public class Object : MonoBehaviour
             {
                 currentState = ItemState.OnGround;
                 Vector3 playerTwoPos = gameManager.playerTwo.gameObject.transform.position;
-                //gameManager.playerTwo.GetComponent<Player>().isCarrying = true;
                 GetComponent<Transform>().position = new Vector3(playerTwoPos.x, playerTwoPos.y - 0.55f, playerTwoPos.z);
+                gameManager.playerTwo.GetComponent<Player>().isCarrying = false;
                 Show();
             }
             else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
@@ -98,6 +98,7 @@ public class Object : MonoBehaviour
         }
         else if(currentState == ItemState.HeldByPlayerTwo)
         {
+            gameManager.playerTwo.GetComponent<Player>().isCarrying = true;
             Hide();
         }
     }
