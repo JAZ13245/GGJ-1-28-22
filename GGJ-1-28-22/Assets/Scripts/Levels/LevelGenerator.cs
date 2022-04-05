@@ -39,8 +39,8 @@ public class LevelGenerator : MonoBehaviour
         float newX = (float)(.4 * x + .2);
         float newY = (float)(.4 * y + .2);
 
-        Vector3 floorPosition = new Vector3(newX - 4, newY - 3, -1);
-        Vector3 position = new Vector3(newX - 4, newY - 3, -2);
+        Vector3 floorPosition = new Vector3(newX - 4, newY - 3, -1); // floor
+        Vector3 position = new Vector3(newX - 4, newY - 3, -2); // wall
         Vector3 playerPosition = new Vector3(newX - 4, newY - 3, -9);
 
         //Debug.Log(x + " " + y);
@@ -68,22 +68,26 @@ public class LevelGenerator : MonoBehaviour
                 {
                     if (colorMapping.prefab.name == "PlayerOne")
                     {
-                        playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
                         playerOnePrefab.transform.position = playerPosition;
+
+                        playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
                     }
                     else if (colorMapping.prefab.name == "PlayerTwo")
                     {
-                        playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
                         playerTwoPrefab.transform.position = playerPosition;
+
+                        playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
                     }
                 }
             }
+        }
 
-            if (colorMapping.color != colorMappings[3].color)
-            {
-                Instantiate(colorMappings[7].prefab, floorPosition, Quaternion.identity, transform);
-                Instantiate(colorMappings[8].prefab, floorPosition, Quaternion.identity, transform);
-            }
+
+
+        if (pixelColor != colorMappings[3].color)
+        {
+            Instantiate(colorMappings[7].prefab, floorPosition, Quaternion.identity, transform);
+            Instantiate(colorMappings[8].prefab, floorPosition, Quaternion.identity, transform);
         }
     }
 }
