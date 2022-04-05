@@ -282,6 +282,10 @@ PrefabInstance:
       propertyPath: lineParticles
       value: 
       objectReference: {fileID: 630348837}
+    - target: {fileID: 5734609044647149425, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c85f4c074a3b54bad79a891c411672, type: 3}
 --- !u!1001 &630348836
