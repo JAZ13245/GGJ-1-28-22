@@ -553,7 +553,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 516393867024940613, guid: 4247d9d3dbba8f14d9015b0548076ad3, type: 3}
       propertyPath: m_Text
-      value: Manipulate the position of the Rift Line by moving the players around
+      value: 'Navigate the level by manipulating
+
+        the position of the Rift
+        Line'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4247d9d3dbba8f14d9015b0548076ad3, type: 3}

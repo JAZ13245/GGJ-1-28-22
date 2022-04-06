@@ -844,6 +844,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 516393867024940613, guid: 4247d9d3dbba8f14d9015b0548076ad3, type: 3}
+      propertyPath: m_Text
+      value: 'WASD and Arrow Keys to move the seperate players
+
+        LCtrl and
+        RCtrl (respectively) to interact with everything
+
+        Power the doors
+        with the levers'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4247d9d3dbba8f14d9015b0548076ad3, type: 3}
 --- !u!1001 &3361217629740119892

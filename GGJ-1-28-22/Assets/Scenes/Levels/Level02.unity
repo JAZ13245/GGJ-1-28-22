@@ -518,7 +518,7 @@ PrefabInstance:
       value: 'Power these doors by picking up and dropping boxes on the pressure
         plates
 
-        (boxes are picked up and dropped with the same key)'
+        (Use the interact keys)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4247d9d3dbba8f14d9015b0548076ad3, type: 3}
