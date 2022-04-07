@@ -64,14 +64,15 @@ public class GameManager : MonoBehaviour
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             Debug.Log(Gamepad.all.Count);
-            PlayerInput.all[1].SwitchCurrentControlScheme("PlayerOne", Keyboard.current);
-            PlayerInput.all[2].SwitchCurrentControlScheme("PlayerTwo", Keyboard.current);
+            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerOne", Keyboard.current);
+            playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerTwo", Keyboard.current);
         }
 
-        if (Gamepad.all[2].aButton.wasPressedThisFrame)
+        if (Gamepad.current.aButton.wasPressedThisFrame)
         {
             Debug.Log("Controller 1");
-            PlayerInput.all[1].SwitchCurrentControlScheme("Controller", Gamepad.all[2]);
+            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.current);
+            //PlayerInput.all[1].SwitchCurrentControlScheme("Controller", Gamepad.all[2]);
         }
 
         if (Gamepad.all[3].aButton.wasPressedThisFrame)
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
             PlayerInput.all[2].SwitchCurrentControlScheme("Controller", Gamepad.all[3]);
         }
         */
+        
 
 
     }

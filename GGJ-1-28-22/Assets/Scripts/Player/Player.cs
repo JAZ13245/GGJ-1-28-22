@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     private Vector2 pos;
     public bool isCarrying;
+    public bool carryButtonHit;
 
    // public MovementState state;
 
