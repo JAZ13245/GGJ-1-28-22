@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        controller1 = Gamepad.all[0];
-        controller2 = Gamepad.all[1];
+        //controller1 = Gamepad.all[0];
+        //controller2 = Gamepad.all[1];
     }
 
     private void Update()
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
                 playerTwoOnPoint = false;
             }
         }
-
+        /*
         if (Keyboard.current.wKey.wasPressedThisFrame && playerOne.GetComponent<PlayerInput>().currentControlScheme != "PlayerOne")
         {
             playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerOne", Keyboard.current);
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Controller 2");
             playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", controller2);
         }
+        */
 
         // Switches the controls
 

@@ -36,6 +36,14 @@
                     "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RightStick",
+                    "type": "Value",
+                    "id": "6c7111e4-3944-4102-b668-08e5745a74c9",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -214,6 +222,50 @@
                     "action": "Carry",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7718fec5-e10a-412c-9187-5fddfadfcde6",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ControllerP2",
+                    "action": "RightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Custom Joystick",
+                    "id": "c1df71be-03d2-4fb0-97ed-e2338c9b6075",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightStick",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "down",
+                    "id": "c48e5b64-1095-4155-9562-b63701dde017",
+                    "path": "<Joystick>/rz",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ControllerP2",
+                    "action": "RightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a6337f62-f219-48e5-bba9-e9a911f5819e",
+                    "path": "<Joystick>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ControllerP2",
+                    "action": "RightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
@@ -244,6 +296,11 @@
         {
             "name": "Controller",
             "bindingGroup": "Controller",
+            "devices": []
+        },
+        {
+            "name": "ControllerP2",
+            "bindingGroup": "ControllerP2",
             "devices": []
         }
     ]
