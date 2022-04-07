@@ -16,10 +16,15 @@ public class GameManager : MonoBehaviour
     private bool playerOneOnPoint;
     private bool playerTwoOnPoint;
 
+    private Gamepad controller1;
+    private Gamepad controller2;
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
+        controller1 = Gamepad.all[0];
+        controller2 = Gamepad.all[1];
     }
 
     private void Update()
@@ -58,6 +63,28 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (Keyboard.current.wKey.wasPressedThisFrame && playerOne.GetComponent<PlayerInput>().currentControlScheme != "PlayerOne")
+        {
+            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerOne", Keyboard.current);
+        }
+
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame && playerTwo.GetComponent<PlayerInput>().currentControlScheme != "PlayerTwo")
+        {
+            playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerTwo", Keyboard.current);
+        }
+
+        if (controller1.aButton.wasPressedThisFrame)
+        {
+            Debug.Log("Controller 1");
+            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", controller1);
+        }
+
+        if (controller2.aButton.wasPressedThisFrame)
+        {
+            Debug.Log("Controller 2");
+            playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", controller2);
+        }
+
         // Switches the controls
 
         /*
@@ -81,7 +108,7 @@ public class GameManager : MonoBehaviour
             PlayerInput.all[2].SwitchCurrentControlScheme("Controller", Gamepad.all[3]);
         }
         */
-        
+
 
 
     }

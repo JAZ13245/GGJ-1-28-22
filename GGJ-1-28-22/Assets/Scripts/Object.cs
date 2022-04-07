@@ -61,23 +61,23 @@ public class Object : MonoBehaviour
         if (c.gameObject.name.Contains("Box")) { touchingBox = false; }
 
     }
-
-    
-    
     
 
     void BoxUpdate() {
-        if (Keyboard.current.leftCtrlKey.wasPressedThisFrame && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
+        if (gameManager.playerOne != null && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
         {
-            if (currentState == ItemState.HeldByPlayerOne)
+            if (Keyboard.current.leftCtrlKey.wasPressedThisFrame)
             {
-                currentState = ItemState.OnGround;
-                Vector3 playerOnePos = gameManager.playerOne.gameObject.transform.position;
-                GetComponent<Transform>().position = new Vector3(playerOnePos.x, playerOnePos.y - 0.55f, playerOnePos.z);
-                gameManager.playerOne.GetComponent<Player>().isCarrying = false;
-                Show();
+                if (currentState == ItemState.HeldByPlayerOne)
+                {
+                    currentState = ItemState.OnGround;
+                    Vector3 playerOnePos = gameManager.playerOne.gameObject.transform.position;
+                    GetComponent<Transform>().position = new Vector3(playerOnePos.x, playerOnePos.y - 0.55f, playerOnePos.z);
+                    gameManager.playerOne.GetComponent<Player>().isCarrying = false;
+                    Show();
+                }
+                else if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
             }
-            else if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
         }
         if (Keyboard.current.rightCtrlKey.wasPressedThisFrame && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
         {
