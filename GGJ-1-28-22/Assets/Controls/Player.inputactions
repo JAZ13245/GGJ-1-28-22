@@ -214,17 +214,6 @@
                     "action": "Carry",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "64938d3e-b7a7-44b5-b82a-a1573e01a9c9",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Carry",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

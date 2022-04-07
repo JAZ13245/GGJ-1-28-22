@@ -56,7 +56,31 @@ public class GameManager : MonoBehaviour
                 playerOneOnPoint = false;
                 playerTwoOnPoint = false;
             }
-        }       
+        }
+
+        // Switches the controls
+
+        /*
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            Debug.Log(Gamepad.all.Count);
+            PlayerInput.all[1].SwitchCurrentControlScheme("PlayerOne", Keyboard.current);
+            PlayerInput.all[2].SwitchCurrentControlScheme("PlayerTwo", Keyboard.current);
+        }
+
+        if (Gamepad.all[2].aButton.wasPressedThisFrame)
+        {
+            Debug.Log("Controller 1");
+            PlayerInput.all[1].SwitchCurrentControlScheme("Controller", Gamepad.all[2]);
+        }
+
+        if (Gamepad.all[3].aButton.wasPressedThisFrame)
+        {
+            Debug.Log("Controller 2");
+            PlayerInput.all[2].SwitchCurrentControlScheme("Controller", Gamepad.all[3]);
+        }
+        */
+
 
     }
 
