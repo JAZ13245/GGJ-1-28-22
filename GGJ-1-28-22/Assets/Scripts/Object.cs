@@ -24,8 +24,8 @@ public class Object : MonoBehaviour
 
     public GameObject powerSource;
 
-   
-
+    private bool previousHitPlayerOne = true;
+    private bool previousHitPlayerTwo = true;
 
     public GameManager gameManager;
     public BoxCollider2D grabCollider;
@@ -43,7 +43,7 @@ public class Object : MonoBehaviour
             case 3: LeverUpdate(); break;
             case 4: DoorUpdate(); break;
         }
-        
+
     }
 
     void OnTriggerStay2D(Collider2D c)
@@ -66,7 +66,7 @@ public class Object : MonoBehaviour
     void BoxUpdate() {
         if (gameManager.playerOne != null && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
         {
-            if (Keyboard.current.leftCtrlKey.wasPressedThisFrame)
+            if (gameManager.playerOne.GetComponent<Player>().carryButtonHit != previousHitPlayerOne)
             {
                 if (currentState == ItemState.HeldByPlayerOne)
                 {
@@ -77,19 +77,26 @@ public class Object : MonoBehaviour
                     Show();
                 }
                 else if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
+
+                previousHitPlayerOne = gameManager.playerOne.GetComponent<Player>().carryButtonHit;
             }
         }
-        if (Keyboard.current.rightCtrlKey.wasPressedThisFrame && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
+        if (gameManager.playerOne != null && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
         {
-            if (currentState == ItemState.HeldByPlayerTwo)
+            if (gameManager.playerTwo.GetComponent<Player>().carryButtonHit != previousHitPlayerTwo)
             {
-                currentState = ItemState.OnGround;
-                Vector3 playerTwoPos = gameManager.playerTwo.gameObject.transform.position;
-                GetComponent<Transform>().position = new Vector3(playerTwoPos.x, playerTwoPos.y - 0.55f, playerTwoPos.z);
-                gameManager.playerTwo.GetComponent<Player>().isCarrying = false;
-                Show();
+                if (currentState == ItemState.HeldByPlayerTwo)
+                {
+                    currentState = ItemState.OnGround;
+                    Vector3 playerTwoPos = gameManager.playerTwo.gameObject.transform.position;
+                    GetComponent<Transform>().position = new Vector3(playerTwoPos.x, playerTwoPos.y - 0.55f, playerTwoPos.z);
+                    gameManager.playerTwo.GetComponent<Player>().isCarrying = false;
+                    Show();
+                }
+                else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
+
+                previousHitPlayerTwo = gameManager.playerTwo.GetComponent<Player>().carryButtonHit;
             }
-            else if (touchingPlayerTwo) { currentState = ItemState.HeldByPlayerTwo; }
         }
         
         if(currentState == ItemState.HeldByPlayerOne)

@@ -83,8 +83,17 @@ public class Player : MonoBehaviour
 
     public void OnCarry(InputAction.CallbackContext ctx)
     {
-        //carryButtonHit = ctx.performed;
-        //Debug.Log(ctx);
+        if (ctx.started)
+        {
+            if (carryButtonHit)
+            {
+                carryButtonHit = false;
+            }
+            else
+            {
+                carryButtonHit = true;
+            }
+        }
     }
 
 }

@@ -31,9 +31,9 @@
                 },
                 {
                     "name": "Carry",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "0fb58686-e9c3-44b5-9dea-37b80d05a344",
-                    "expectedControlType": "Integer",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -211,6 +211,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayerTwo",
+                    "action": "Carry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17d37e8a-097f-4c99-b2a0-e115e7f0d0f2",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
                     "action": "Carry",
                     "isComposite": false,
                     "isPartOfComposite": false
