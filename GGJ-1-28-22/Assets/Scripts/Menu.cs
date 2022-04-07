@@ -56,6 +56,7 @@ public class Menu : MonoBehaviour
                     SceneManager.LoadScene("Level01");
                     break;
                 case ButtonType.Options:
+                    //SceneManager.LoadScene("Options");
                     break;
                 case ButtonType.Exit:
                     Application.Quit();

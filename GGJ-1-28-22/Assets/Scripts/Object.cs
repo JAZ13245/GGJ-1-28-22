@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum ItemState {
     OnGround, HeldByPlayerOne, HeldByPlayerTwo
@@ -66,7 +67,7 @@ public class Object : MonoBehaviour
     
 
     void BoxUpdate() {
-        if (Input.GetKeyDown(KeyCode.LeftControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
+        if (Keyboard.current.leftCtrlKey.wasPressedThisFrame && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
         {
             if (currentState == ItemState.HeldByPlayerOne)
             {
@@ -78,7 +79,7 @@ public class Object : MonoBehaviour
             }
             else if (touchingPlayerOne) { currentState = ItemState.HeldByPlayerOne; }
         }
-        if (Input.GetKeyDown(KeyCode.RightControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
+        if (Keyboard.current.rightCtrlKey.wasPressedThisFrame && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
         {
             if (currentState == ItemState.HeldByPlayerTwo)
             {

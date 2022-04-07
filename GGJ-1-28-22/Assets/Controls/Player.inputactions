@@ -155,7 +155,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -196,7 +196,7 @@
                 {
                     "name": "",
                     "id": "03fd121b-12f7-40bd-8e3f-e55dbc574427",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayerOne",
@@ -211,6 +211,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayerTwo",
+                    "action": "Carry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64938d3e-b7a7-44b5-b82a-a1573e01a9c9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Carry",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -242,15 +253,9 @@
             ]
         },
         {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": []
         }
     ]
 }
