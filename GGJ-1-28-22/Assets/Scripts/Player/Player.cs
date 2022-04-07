@@ -74,22 +74,17 @@ public class Player : MonoBehaviour
 
     }
 
-    /*
+    
     public void OnMove(InputAction.CallbackContext ctx) 
     {
         movementInput = ctx.ReadValue<Vector2>();
     }
-    */
+    
 
     public void OnCarry(InputAction.CallbackContext ctx)
     {
         //carryButtonHit = ctx.performed;
         //Debug.Log(ctx);
-    }
-
-    public void OnRightStick(InputAction.CallbackContext ctx)
-    {
-        Debug.Log("kek");
     }
 
 }
