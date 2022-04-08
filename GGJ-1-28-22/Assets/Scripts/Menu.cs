@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour
     }
     public MenuButton[] buttons;
     public int currentSelection;
+    public Color selectionColor;
     //public List<GameObject> buttons;
     //public List<ButtonType> buttonTypes;
 
@@ -46,7 +47,8 @@ public class Menu : MonoBehaviour
         else if (currentSelection < 0) {
             currentSelection = buttons.Length - 1;
         }
-        buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
+        buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = selectionColor;
+        Debug.Log(selectionColor);
 
 
         if (Input.GetKey(KeyCode.Return))
