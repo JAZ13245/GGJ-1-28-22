@@ -13,13 +13,13 @@ public class Options : MonoBehaviour
     public OptionButton[] buttons;
     public int currentSelection;
     private int selectedButton = 0;
-    public static string controls;
+    public static string controls = "Keyboard";
+    public GameObject warning;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSelection = 0;
-        controls = "Keyboard";
     }
 
     // Update is called once per frame
@@ -108,6 +108,7 @@ public class Options : MonoBehaviour
                     buttons[2].selected = false;
                     selectedButton = currentSelection;
                     buttons[2].button.GetComponent<SpriteRenderer>().color = Color.white;
+                    warning.SetActive(false);
                     controls = "Keyboard";
                     break;
                 case ButtonType.Controller:
@@ -118,11 +119,12 @@ public class Options : MonoBehaviour
                         buttons[1].selected = false;
                         selectedButton = currentSelection;
                         buttons[1].button.GetComponent<SpriteRenderer>().color = Color.white;
+                        warning.SetActive(false);
                         controls = "Gamepad";
                     }
                     else
                     {
-
+                        warning.SetActive(true);
                     }
                     break;
                 default:
