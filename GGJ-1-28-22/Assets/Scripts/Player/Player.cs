@@ -74,9 +74,26 @@ public class Player : MonoBehaviour
 
     }
 
+    
     public void OnMove(InputAction.CallbackContext ctx) 
     {
         movementInput = ctx.ReadValue<Vector2>();
+    }
+    
+
+    public void OnCarry(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            if (carryButtonHit)
+            {
+                carryButtonHit = false;
+            }
+            else
+            {
+                carryButtonHit = true;
+            }
+        }
     }
 
 }

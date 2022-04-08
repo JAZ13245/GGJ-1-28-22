@@ -126,6 +126,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 5668578137183354400}
   animator: {fileID: 5668578137183354410}
   isCarrying: 0
+  carryButtonHit: 0
 --- !u!114 &5668578137183354409
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -71,12 +71,20 @@ public class LevelGenerator : MonoBehaviour
                         playerOnePrefab.transform.position = playerPosition;
 
                         playerOne = PlayerInput.Instantiate(playerOnePrefab, controlScheme: "PlayerOne", pairWithDevice: Keyboard.current);
+                        if(Options.controls == "Gamepad")
+                        {
+                            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("ControllerP1", Gamepad.current);
+                        }
                     }
                     else if (colorMapping.prefab.name == "PlayerTwo")
                     {
                         playerTwoPrefab.transform.position = playerPosition;
 
                         playerTwo = PlayerInput.Instantiate(playerTwoPrefab, controlScheme: "PlayerTwo", pairWithDevice: Keyboard.current);
+                        if (Options.controls == "Gamepad")
+                        {
+                            playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("ControllerP2", Gamepad.current);
+                        }
                     }
                 }
             }
