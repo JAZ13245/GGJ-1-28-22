@@ -27,19 +27,19 @@ public class Menu : MonoBehaviour
     void Update()
     {
         int temp = 0;
-        /*
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.up.wasPressedThisFrame) { 
+        
+        if (Keyboard.current.leftArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame)) { 
             temp--;
             buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
             Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
         }
-        if (Keyboard.current.downArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.down.wasPressedThisFrame) { 
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.rightStick.left.wasPressedThisFrame)) { 
             temp++;
             buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
             Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
         }
         currentSelection += temp;
-        */
+        
         if(currentSelection >= buttons.Length) {
             currentSelection = 0;
         }
