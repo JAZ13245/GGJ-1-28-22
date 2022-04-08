@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    public bool touchingPlayer;
+    public bool touchingPlayerOne, touchingPlayerTwo;
     Color targetColor;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Tutorial : MonoBehaviour
     void Update()
     {
         Color currentColor = GetComponent<SpriteRenderer>().color;
-        if (touchingPlayer)
+        if (touchingPlayerOne || touchingPlayerTwo)
         {
             targetColor = new Color(1f, 1f, 1f, 0.5f);
         }
@@ -52,15 +52,15 @@ public class Tutorial : MonoBehaviour
     {
         Debug.Log(c.gameObject.name);
         // if colliding with either player, true
-        if (c.gameObject.name.Contains("PlayerOne")) { touchingPlayer = true; }
-        if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayer = true; }
+        if (c.gameObject.name.Contains("PlayerOne")) { touchingPlayerOne = true; }
+        if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayerTwo = true; }
     }
 
     void OnTriggerExit2D(Collider2D c)
     {
         // if leaving collision with either player, false
-        if (c.gameObject.name.Contains("PlayerOne")) { touchingPlayer = false; }
-        if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayer = false; }
+        if (c.gameObject.name.Contains("PlayerOne")) { touchingPlayerOne = false; }
+        if (c.gameObject.name.Contains("PlayerTwo")) { touchingPlayerTwo = false; }
 
     }
 }
