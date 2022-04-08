@@ -111,7 +111,7 @@ public class RiftLine : MonoBehaviour
         else if(lineStyle == 5)
         {
             //const float alpha = 0.004f; 
-            const float alpha = 0.064f; // for line angle transition
+            const float alpha = 0.016f; // for line angle transition
             const float beta = 2; // for line snapping
             const float close = 1;
             
