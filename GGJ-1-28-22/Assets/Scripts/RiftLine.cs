@@ -37,10 +37,10 @@ public class RiftLine : MonoBehaviour
         theLine = this.GetComponent<LineRenderer>();
 
         theLine.SetColors(Color.red, Color.cyan);
-        theLine.SetPosition(0, new Vector3(-6, 0, -9));
+        theLine.SetPosition(0, new Vector3(-6, 0, -52));
 
-        theLine.SetPosition(1, new Vector3(0,0,-9));
-        theLine.SetPosition(2, new Vector3(6, 0, -9));
+        theLine.SetPosition(1, new Vector3(0,0, -52));
+        theLine.SetPosition(2, new Vector3(6, 0, -52));
     }
 
 
@@ -215,8 +215,8 @@ public class RiftLine : MonoBehaviour
 
         float newAngle = angle;
         angle *= Mathf.Deg2Rad;
-        theLine.SetPosition(0, new Vector3(Mathf.Cos(angle) * 6, Mathf.Sin(angle) * 6, -9));
-        theLine.SetPosition(2, new Vector3(Mathf.Cos(angle + Mathf.PI) * 6, Mathf.Sin(angle + Mathf.PI) * 6, -9));
+        theLine.SetPosition(0, new Vector3(Mathf.Cos(angle) * 6, Mathf.Sin(angle) * 6, -52));
+        theLine.SetPosition(2, new Vector3(Mathf.Cos(angle + Mathf.PI) * 6, Mathf.Sin(angle + Mathf.PI) * 6, -52));
         angle = newAngle;
     }
 

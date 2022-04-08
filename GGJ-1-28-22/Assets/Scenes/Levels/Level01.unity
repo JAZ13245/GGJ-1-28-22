@@ -938,6 +938,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1369106262, guid: bec48a30e42fabd43b02093e61a3e827, type: 3}
+      propertyPath: layerPriority
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3361217629974359771, guid: bec48a30e42fabd43b02093e61a3e827, type: 3}
       propertyPath: m_RootOrder
       value: 6
