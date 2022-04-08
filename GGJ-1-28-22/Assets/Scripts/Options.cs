@@ -94,6 +94,7 @@ public class Options : MonoBehaviour
             buttons[selectedButton].button.GetComponent<SpriteRenderer>().color = Color.red;
         }
         buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
+        //Debug.Log(Gamepad.current.leftStick.ReadValue());
 
         if ((Options.controls == "Keyboard" && Keyboard.current.enterKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.aButton.wasPressedThisFrame))
         {
@@ -121,6 +122,18 @@ public class Options : MonoBehaviour
                         buttons[1].button.GetComponent<SpriteRenderer>().color = Color.white;
                         warning.SetActive(false);
                         controls = "Gamepad";
+                        if (Gamepad.current is UnityEngine.InputSystem.XInput.XInputController)
+                        {
+                            Debug.Log("Xbox");
+                        }
+                        if (Gamepad.current is UnityEngine.InputSystem.DualShock.DualShockGamepad)
+                        {
+                            Debug.Log("Playstation");
+                        }
+                        if (Gamepad.current is UnityEngine.InputSystem.Switch.SwitchProControllerHID)
+                        {
+                            Debug.Log("Switch");
+                        }
                     }
                     else
                     {

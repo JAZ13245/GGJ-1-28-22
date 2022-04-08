@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
                 playerTwoOnPoint = false;
             }
         }
-
+        Debug.Log(Gamepad.current.leftStick.ReadValue());
     }
 
 }
