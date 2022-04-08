@@ -27,6 +27,7 @@ public class Menu : MonoBehaviour
     void Update()
     {
         int temp = 0;
+        /*
         if (Keyboard.current.upArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.up.wasPressedThisFrame) { 
             temp--;
             buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
@@ -38,7 +39,7 @@ public class Menu : MonoBehaviour
             Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
         }
         currentSelection += temp;
-
+        */
         if(currentSelection >= buttons.Length) {
             currentSelection = 0;
         }
@@ -48,7 +49,7 @@ public class Menu : MonoBehaviour
         buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
 
 
-        if (Keyboard.current.enterKey.wasPressedThisFrame || Gamepad.current.aButton.wasPressedThisFrame)
+        if (Input.GetKey(KeyCode.Return))
         {
             switch(buttons[currentSelection].buttonType)
             {

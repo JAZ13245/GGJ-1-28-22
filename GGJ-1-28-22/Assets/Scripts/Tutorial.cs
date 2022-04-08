@@ -5,12 +5,13 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public bool touchingPlayerOne, touchingPlayerTwo;
-    Color targetColor;
+    Color targetColor, baseColor;
 
     // Start is called before the first frame update
     void Start()
     {
-        targetColor = new Color(1f, 1f, 1f, 0.2f);
+        baseColor = GetComponent<SpriteRenderer>().color;
+        targetColor = new Color(baseColor.r, baseColor.g, baseColor.b, 0.2f);
     }
 
     // Update is called once per frame
@@ -19,22 +20,22 @@ public class Tutorial : MonoBehaviour
         Color currentColor = GetComponent<SpriteRenderer>().color;
         if (touchingPlayerOne || touchingPlayerTwo)
         {
-            targetColor = new Color(1f, 1f, 1f, 0.5f);
+            targetColor = new Color(baseColor.r, baseColor.g, baseColor.b, 0.5f);
         }
         else
         {
-            targetColor = new Color(1f, 1f, 1f, 1);
+            targetColor = new Color(baseColor.r, baseColor.g, baseColor.b, 1);
         }
 
         if(Mathf.Abs(currentColor.a - targetColor.a) > 0.04f)
         {
             if (targetColor.a == 1){
-                GetComponent<SpriteRenderer>().color = new Color(1f, 1f,1f,
+                GetComponent<SpriteRenderer>().color = new Color(baseColor.r, baseColor.g, baseColor.b,
                     currentColor.a+.01f);
             }
             else
             {
-                GetComponent<SpriteRenderer>().color = new Color(1f, 1f,1f,
+                GetComponent<SpriteRenderer>().color = new Color(baseColor.r, baseColor.g, baseColor.b,
                     currentColor.a - .01f);
             }
         }
