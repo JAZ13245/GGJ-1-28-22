@@ -27,7 +27,7 @@ public class Options : MonoBehaviour
     {
         if(currentSelection == 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Keyboard.current.leftArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.left.wasPressedThisFrame)
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -36,7 +36,7 @@ public class Options : MonoBehaviour
                 currentSelection++;
             }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Keyboard.current.rightArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.right.wasPressedThisFrame)
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -48,7 +48,8 @@ public class Options : MonoBehaviour
 
         else if(currentSelection == 1)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            if ((Keyboard.current.leftArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.left.wasPressedThisFrame) || 
+                (Keyboard.current.rightArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.right.wasPressedThisFrame))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -57,7 +58,7 @@ public class Options : MonoBehaviour
                 currentSelection = 2;
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Keyboard.current.upArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.up.wasPressedThisFrame)
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -69,7 +70,8 @@ public class Options : MonoBehaviour
 
         else if (currentSelection == 2)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            if ((Keyboard.current.leftArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.left.wasPressedThisFrame) ||
+                (Keyboard.current.rightArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.right.wasPressedThisFrame))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -78,7 +80,7 @@ public class Options : MonoBehaviour
                 currentSelection = 1;
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Keyboard.current.upArrowKey.wasPressedThisFrame || Gamepad.current.leftStick.up.wasPressedThisFrame)
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -93,7 +95,7 @@ public class Options : MonoBehaviour
         }
         buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Keyboard.current.enterKey.wasPressedThisFrame || Gamepad.current.aButton.wasPressedThisFrame)
         {
             switch (buttons[currentSelection].buttonType)
             {
