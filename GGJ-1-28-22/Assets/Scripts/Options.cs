@@ -8,17 +8,18 @@ public class Options : MonoBehaviour
 {
     public enum ButtonType
     {
-        Return, Keyboard1, Keyboard2, Controller1, Controller2
+        Return, Keyboard, Controller
     }
     public OptionButton[] buttons;
     public int currentSelection;
-    public string playerOneControls = "PlayerOne";
-    public string playerTwoControls = "PlayerTwo";
+    private int selectedButton = 0;
+    public static string controls;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSelection = 0;
+        controls = "Keyboard";
     }
 
     // Update is called once per frame
@@ -28,79 +29,69 @@ public class Options : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection = 1;
+                if (!buttons[currentSelection].selected)
+                {
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                currentSelection++;
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                if (!buttons[currentSelection].selected)
+                {
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                }
                 currentSelection = 2;
             }
         }
 
-        else if (currentSelection == 1)
+        else if(currentSelection == 1)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection = 3;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                if (!buttons[currentSelection].selected)
+                {
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                }
                 currentSelection = 2;
-            }
-        }
-
-        else if(currentSelection == 2)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection = 1;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection = 4;
-            }
-        }
-
-        if (currentSelection == 1 || currentSelection == 2)
-        {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection += 2;
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                if (!buttons[currentSelection].selected)
+                {
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                }
                 currentSelection = 0;
             }
         }
 
-        if(currentSelection == 3 || currentSelection == 4)
+        else if (currentSelection == 2)
         {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (!buttons[currentSelection].selected)
+                {
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                currentSelection = 1;
+            }
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection -= 2;
-            }
-
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection = 3;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
-                currentSelection = 4;
+                if (!buttons[currentSelection].selected)
+                {
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+                currentSelection = 0;
             }
         }
-
+        if (selectedButton != 0)
+        {
+            buttons[selectedButton].button.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -109,24 +100,27 @@ public class Options : MonoBehaviour
                 case ButtonType.Return:
                     SceneManager.LoadScene("StartMenu");
                     break;
-                case ButtonType.Keyboard1:
-                    playerOneControls = "PlayerOne";
+                case ButtonType.Keyboard:
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.red;
+                    buttons[currentSelection].selected = true;
+                    buttons[2].selected = false;
+                    selectedButton = currentSelection;
+                    buttons[2].button.GetComponent<SpriteRenderer>().color = Color.white;
+                    controls = "Keyboard";
                     break;
-                case ButtonType.Keyboard2:
-                    playerTwoControls = "PlayerTwo";
-                    break;
-                case ButtonType.Controller1:
-                    playerOneControls = "Controller";
-                    break;
-                case ButtonType.Controller2:
-                    playerTwoControls = "Controller";
+                case ButtonType.Controller:
+                    buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.red;
+                    buttons[currentSelection].selected = true;
+                    buttons[1].selected = false;
+                    selectedButton = currentSelection;
+                    buttons[1].button.GetComponent<SpriteRenderer>().color = Color.white;
+                    controls = "Gamepad";
                     break;
                 default:
                     Debug.Log("Error: no menu button selection");
                     break;
             }
         }
-        buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
     }
 
     [System.Serializable]
@@ -134,5 +128,6 @@ public class Options : MonoBehaviour
     {
         public GameObject button;
         public ButtonType buttonType;
+        public bool selected = false;
     }
 }

@@ -166,7 +166,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "Controller;ControllerP1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -232,7 +232,7 @@
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "ControllerP1",
                     "action": "Carry",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -244,6 +244,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "ControllerP2",
+                    "action": "Carry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c6bc01f-4aa2-44c2-a0f6-b142a26702db",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
                     "action": "Carry",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -282,6 +293,11 @@
         {
             "name": "ControllerP2",
             "bindingGroup": "ControllerP2",
+            "devices": []
+        },
+        {
+            "name": "ControllerP1",
+            "bindingGroup": "ControllerP1",
             "devices": []
         }
     ]

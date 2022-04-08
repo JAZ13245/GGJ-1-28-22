@@ -23,8 +23,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        //controller1 = Gamepad.all[0];
-        //controller2 = Gamepad.all[1];
     }
 
     private void Update()
@@ -62,56 +60,6 @@ public class GameManager : MonoBehaviour
                 playerTwoOnPoint = false;
             }
         }
-        
-        if (Keyboard.current.wKey.wasPressedThisFrame && playerOne.GetComponent<PlayerInput>().currentControlScheme != "PlayerOne")
-        {
-            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerOne", Keyboard.current);
-        }
-
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame && playerTwo.GetComponent<PlayerInput>().currentControlScheme != "PlayerTwo")
-        {
-            playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerTwo", Keyboard.current);
-        }
-
-        if (Gamepad.current.bButton.wasPressedThisFrame)
-        {
-            Debug.Log("Controller 1");
-            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.current);
-        }
-
-        if (Gamepad.current.xButton.wasPressedThisFrame)
-        {
-            Debug.Log("Controller 2");
-            playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("ControllerP2", Gamepad.current);
-        }
-
-
-
-        // Switches the controls
-
-        /*
-        if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            Debug.Log(Gamepad.all.Count);
-            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerOne", Keyboard.current);
-            playerTwo.GetComponent<PlayerInput>().SwitchCurrentControlScheme("PlayerTwo", Keyboard.current);
-        }
-
-        if (Gamepad.current.aButton.wasPressedThisFrame)
-        {
-            Debug.Log("Controller 1");
-            playerOne.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Controller", Gamepad.current);
-            //PlayerInput.all[1].SwitchCurrentControlScheme("Controller", Gamepad.all[2]);
-        }
-
-        if (Gamepad.all[3].aButton.wasPressedThisFrame)
-        {
-            Debug.Log("Controller 2");
-            PlayerInput.all[2].SwitchCurrentControlScheme("Controller", Gamepad.all[3]);
-        }
-        */
-
-
 
     }
 

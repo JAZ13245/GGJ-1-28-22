@@ -81,7 +81,7 @@ public class Object : MonoBehaviour
                 previousHitPlayerOne = gameManager.playerOne.GetComponent<Player>().carryButtonHit;
             }
         }
-        if (gameManager.playerOne != null && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
+        if (gameManager.playerTwo != null && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
         {
             if (gameManager.playerTwo.GetComponent<Player>().carryButtonHit != previousHitPlayerTwo)
             {
@@ -125,23 +125,25 @@ public class Object : MonoBehaviour
 
     void LeverUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
+        if (gameManager.playerOne != null && GetComponent<TimeState>().currentTimeState == TimePeriod.Future) // player one is future
         {
-            if (touchingPlayerOne)
+            if ((gameManager.playerOne.GetComponent<Player>().carryButtonHit != previousHitPlayerOne) && touchingPlayerOne)
             {
                 if (!powered) { powered = true; }
                 else { powered = false; }
                 transform.Rotate(new Vector3(0, 0, 180));
             }
+            previousHitPlayerOne = gameManager.playerOne.GetComponent<Player>().carryButtonHit;
         }
-        if (Input.GetKeyDown(KeyCode.RightControl) && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
+        if (gameManager.playerTwo != null && GetComponent<TimeState>().currentTimeState == TimePeriod.Past) // player two is past
         {
-            if (touchingPlayerTwo)
+            if ((gameManager.playerTwo.GetComponent<Player>().carryButtonHit != previousHitPlayerTwo) && touchingPlayerTwo)
             {
                 if (!powered) { powered = true; }
                 else { powered = false; }
                 transform.Rotate(new Vector3(0, 0, 180));
             }
+            previousHitPlayerTwo = gameManager.playerTwo.GetComponent<Player>().carryButtonHit;
         }
     }
 
