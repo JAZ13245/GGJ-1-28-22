@@ -27,7 +27,7 @@ public class Options : MonoBehaviour
     {
         if(currentSelection == 0)
         {
-            if (Keyboard.current.leftArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame))
+            if ((Options.controls == "Keyboard" && Keyboard.current.leftArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -36,7 +36,7 @@ public class Options : MonoBehaviour
                 currentSelection++;
             }
 
-            if (Keyboard.current.rightArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame))
+            if ((Options.controls == "Keyboard" && Keyboard.current.rightArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -48,8 +48,8 @@ public class Options : MonoBehaviour
 
         else if(currentSelection == 1)
         {
-            if ((Keyboard.current.leftArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame)) || 
-                (Keyboard.current.rightArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame)))
+            if (((Options.controls == "Keyboard" && Keyboard.current.leftArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame)) || 
+                ((Options.controls == "Keyboard" && Keyboard.current.rightArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame)))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -58,7 +58,7 @@ public class Options : MonoBehaviour
                 currentSelection = 2;
             }
 
-            if (Keyboard.current.upArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.up.wasPressedThisFrame))
+            if ((Options.controls == "Keyboard" && Keyboard.current.upArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.up.wasPressedThisFrame))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -70,8 +70,8 @@ public class Options : MonoBehaviour
 
         else if (currentSelection == 2)
         {
-            if ((Keyboard.current.leftArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame)) ||
-                (Keyboard.current.rightArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame)))
+            if (((Options.controls == "Keyboard" && Keyboard.current.leftArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame)) ||
+                ((Options.controls == "Keyboard" && Keyboard.current.rightArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame)))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -80,7 +80,7 @@ public class Options : MonoBehaviour
                 currentSelection = 1;
             }
 
-            if (Keyboard.current.upArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.up.wasPressedThisFrame))
+            if ((Options.controls == "Keyboard" && Keyboard.current.upArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.up.wasPressedThisFrame))
             {
                 if (!buttons[currentSelection].selected)
                 {
@@ -95,7 +95,7 @@ public class Options : MonoBehaviour
         }
         buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.blue;
 
-        if (Keyboard.current.enterKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.aButton.wasPressedThisFrame))
+        if ((Options.controls == "Keyboard" && Keyboard.current.enterKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.aButton.wasPressedThisFrame))
         {
             switch (buttons[currentSelection].buttonType)
             {
