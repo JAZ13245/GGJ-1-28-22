@@ -9,6 +9,10 @@ public class SpawnBlock : MonoBehaviour
 
     public GameObject loader;
 
+    private void Update()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, -51);
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
