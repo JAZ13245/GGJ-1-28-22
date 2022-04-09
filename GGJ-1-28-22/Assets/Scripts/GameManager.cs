@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
                 playerTwoOnPoint = false;
             }
         }
-
     }
 
 }
