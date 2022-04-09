@@ -29,12 +29,12 @@ public class Menu : MonoBehaviour
     {
         int temp = 0;
         
-        if (Keyboard.current.leftArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame)) { 
+        if ((Options.controls == "Keyboard" && Keyboard.current.leftArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.left.wasPressedThisFrame)) { 
             temp--;
             buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
             Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
         }
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame)) { 
+        if ((Options.controls == "Keyboard" && Keyboard.current.rightArrowKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.leftStick.right.wasPressedThisFrame)) { 
             temp++;
             buttons[currentSelection].button.GetComponent<SpriteRenderer>().color = Color.white;
             Debug.Log("New Menu Selection: " + currentSelection + " aka " + buttons[currentSelection].buttonType);
@@ -51,7 +51,7 @@ public class Menu : MonoBehaviour
         Debug.Log(selectionColor);
 
 
-        if (Input.GetKey(KeyCode.Return) || (Options.controls == "Gamepad" && Gamepad.current.aButton.wasPressedThisFrame))
+        if ((Options.controls == "Keyboard" && Keyboard.current.enterKey.wasPressedThisFrame) || (Options.controls == "Gamepad" && Gamepad.current.aButton.wasPressedThisFrame))
         {
             switch(buttons[currentSelection].buttonType)
             {
