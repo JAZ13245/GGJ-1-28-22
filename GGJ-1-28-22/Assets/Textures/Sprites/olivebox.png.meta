@@ -60,7 +60,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -389,19 +388,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      olivebox_5: -4345448759957222883
-      olivebox_7: 808240888225403602
-      olivebox_6: 1653090907838809302
-      olivebox_9: -7637363081847408299
-      olivebox_1: -8764334261566902779
-      olivebox_0: 7119213283894219978
-      olivebox_11: 5461526342286654277
-      olivebox_10: 6693863620595706123
-      olivebox_4: 2379487757353292966
-      olivebox_3: -8669375641213223628
-      olivebox_8: -6008478766471464445
-      olivebox_2: -2050966649394358196
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
